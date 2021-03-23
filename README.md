@@ -1,105 +1,67 @@
-# CryptoGift
+# Marble Token
+This box helps to create a basic Ethereum non fungible token (NFT) with truffle, openzeppelin and reactjs frameworks.
 
-[![Build Status](https://travis-ci.org/vittominacori/cryptogift.svg?branch=master)](https://travis-ci.org/vittominacori/cryptogift)
-[![Coverage Status](https://coveralls.io/repos/github/vittominacori/cryptogift/badge.svg?branch=master)](https://coveralls.io/github/vittominacori/cryptogift?branch=master)
+## Features
 
+Create a Marble token by giving it a unique:
+* Shape
+* Color
+* Name
 
-An ERC721 NFT Token and Marketplace to buy and give away an Ethereum based Collectible Gift.
-
-
-Gift has:
-
-* sender: who is sending the gift
-* receiver: who is receiving the gift
-* message: a message for the receiver
-* amount: the value of ETH sent to the receiver
-* style: a number representing the message style
-* date: the date after which the gift is visible
-
-
-Code created using [Open Zeppelin](https://github.com/OpenZeppelin/openzeppelin-solidity) and [Truffle Framework](https://github.com/trufflesuite/truffle).
-
-## DAPP Source
- 
-Discover DApp source [here](https://github.com/vittominacori/cryptogift/tree/dapp).  
+You can then trade those tokens just like any other NFT.
 
 ## Installation
 
-Install truffle.
+First ensure you are in a new and empty directory.
 
-```bash
-npm install -g truffle      // Version 4.1.14+ required.
-```
+1. Run the `unbox` command via `npx` and skip to step 3. This will install all necessary dependencies.
+   ```js
+   npx truffle unbox koshikraj/marble-token
+   ```
 
-## Install dependencies
+2. Alternatively, you can install Truffle globally and run the `unbox` command.
+    ```javascript
+    npm install -g truffle
+    truffle unbox koshikraj/marble-token
+    ```
 
-```bash
-npm install
-```
+3. Compile and migrate the smart contracts using truffle.
+    ```javascript
+    truffle compile
+    truffle migrate
+    ```
 
-## Linter
+4. Truffle can run tests written in JavaScript Mocha and Chai test framework against your smart contracts.
+    ```javascript
+    // outside the development console..
+    truffle test
+    ```
 
-Use Solium
+5. In the `client` directory, we run the React frontend app.
+    ```javascript
+    cd client
+    npm run start
+    ```
 
-```bash
-npm run lint:sol
-```
+6. To build the application for production, use the build script. A production build will be in the `client/build` folder.
+    ```javascript
+    // ensure you are inside the client directory when running this
+    npm run build
+    ```
+    
+## Contributing
 
-Use ESLint
+You are welcome to submit issues and enhancement requests and work on any of the existing issues. Follow this simple guide to contribute to the repository.
 
-```bash
-npm run lint:js
-```
+ 1. **Create** or pick an existing issue to work on
+ 2. **Fork** the repo on GitHub
+ 3. **Clone** the forked project to your own machine
+ 4. **Commit** changes to your own branch
+ 5. **Push** your work back up to your forked repo
+ 6. Submit a **Pull request** from the forked repo to our repo so that we can review your changes
 
-Use both and fix
+NOTE: Be sure to merge the latest from "upstream" before making a pull request!
 
-```bash
-npm run lint:fix
-```
+## Credits
 
-## Compile and test the contracts.
-
-Open the Truffle console
-
-```bash
-truffle develop
-```
-
-Compile 
-
-```bash
-compile 
-```
-
-Test
-
-```bash
-test
-```
-
-## Run server
-
-Run the `liteserver` development server.
-
-```bash
-npm run dev
-```
-
-## Optional
-
-Install the [truffle-flattener](https://github.com/alcuadrado/truffle-flattener)
-
-```bash
-npm install -g truffle-flattener
-```
- 
-Usage 
-
-```bash
-truffle-flattener contracts/token/CryptoGiftToken.sol >> dist/CryptoGiftToken.sol
-truffle-flattener contracts/marketplace/CryptoGiftMarketplace.sol >> dist/CryptoGiftMarketplace.sol
-```
-
-## License
-
-Code released under the [MIT License](https://github.com/vittominacori/cryptogift/blob/master/LICENSE).
+ * **Marble Token** project is inspired by [NFT Tutorial](https://github.com/dappuniversity/nft) by [dappuniversity](https://github.com/dappuniversity)

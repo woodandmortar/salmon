@@ -1,42 +1,25 @@
-*.swp
-*.swo
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# Logs
-logs
-*.log
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
 
-# Runtime data
-pids
-*.pid
-*.seed
-allFiredEvents
-scTopics
+# testing
+/coverage
 
-# Coverage directory used by tools like istanbul
-coverage
-coverage.json
-coverageEnv
+# production
+/build
+client/src/abis
 
-# node-waf configuration
-.lock-wscript
-
-# Dependency directory
-node_modules
-
-# Debug log from npm
-npm-debug.log
-
-# local env variables
+# misc
+.DS_Store
 .env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# truffle build directory
-build/
-
-# lol macs
-.DS_Store/
-
-# truffle
-.node-xmlhttprequest-*
-
-# npm package
-package-lock.json
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

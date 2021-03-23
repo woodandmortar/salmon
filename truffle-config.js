@@ -1,30 +1,19 @@
-require('dotenv').config();
-
 module.exports = {
   networks: {
-    develop: {
-      host: '127.0.0.1',
-      port: 9545,
-      network_id: '*', // eslint-disable-line camelcase
-      gas: 6000000, // Gas limit used for deploys
-    },
-    coverage: {
-      host: 'localhost',
-      network_id: '*', // eslint-disable-line camelcase
-      port: 8555,
-      gas: 0xfffffffffff,
-      gasPrice: 0x01,
-    },
-    ganache: {
-      host: 'localhost',
+    development: {
+      host: "127.0.0.1",
       port: 8545,
-      network_id: '*', // eslint-disable-line camelcase
+      network_id: "*" // Match any network id
     },
   },
-  solc: {
-    optimizer: {
-      enabled: true,
-      runs: 200,
-    },
-  },
-};
+  contracts_directory: './contracts/',
+  contracts_build_directory: './client/src/abis/',
+  compilers: {
+    solc: {
+      optimizer: {
+        enabled: true,
+        runs: 200
+      }
+    }
+  }
+}
