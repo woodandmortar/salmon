@@ -119,7 +119,7 @@ animation: swim 2.4s ease alternate infinite;
 <section class="banner">
   <div class="banner3d-1">
     <div class="banner3d-1-front">
-      Creating real platforms that aligns systemic change with <b style="color:#50C7C7;">tech</b> <b style="color:#C7AD50;">education</b> and <b style="color:#D95952;">affordable housing</b>
+      A <b style="color:#D95952;">Kansas City</b> investment platform aligning <b style="color:#50C7C7;">NFT</b>'s with curated <b style="color:#C7AD50;">donations</b>
     </div>
   </div>
   <div class="image2"></div>
@@ -130,42 +130,88 @@ animation: swim 2.4s ease alternate infinite;
 <section class="banner">
   <div class="banner3d-2">
     <div class="banner3d-2-front">
-      <center>Your local Kansas 501(c)3 providing <b style="color:#D95952;">permanent</b> housing solutions and regional <b style="color:#50C7C7;">transparent</b> support</center>
+<center>Our <b style="color:#D95952;">public</b> NFT has a current value at <b style="color:#50C7C7;"><div id="live"></div></b></center> <br>
+
+    <nft-card
+    contractAddress="0x495f947276749ce646f68ac8c248420045cb7b5e"
+    tokenId="11801924658875302370127354303615614103006072134766457320534483645660586311681">
+    </nft-card>
+    <script src="https://unpkg.com/embeddable-nfts/dist/nft-card.min.js"></script>
+
+    <center><div id="percentage"></div></center>
+<script>
+const live = document.getElementById('live');
+const perc = document.getElementById('percentage');
+let gainloss = 'loss';
+
+/*Fetch the required info via json, using the https://www.cryptocompare.com/api/ API */
+fetch('https://min-api.cryptocompare.com/data/pricemultifull?fsyms=ETH&tsyms=USD&e=Coinbase')
+.then((res) => res.json())
+.then((data) => {
+  let livePrice = data.RAW.ETH.USD.PRICE;
+  let dayPrice = data.RAW.ETH.USD.OPEN24HOUR;
+	/* Calculate the percentage change between the 2 prices */
+  let p = parseFloat(((livePrice - dayPrice) / dayPrice) * 100).toFixed(2);
+
+  live.innerHTML = `<h2>$${((livePrice) * 2000)}</h2>`;
+
+  if(livePrice > dayPrice) {
+    gainloss = 'gain';
+  } else if (livePrice < dayPrice){
+    gainloss = 'loss';
+  }
+  else {
+    gainloss = 'neutral';
+  }
+	/* A case switch is used below, however it could be achieved with an if statement also */
+  switch (gainloss)
+  {
+			/* If gainloss = gain then show % and set text to green */
+    case 'gain': perc.innerHTML = `<span class="gain">${p}% <i class="fa fa-arrow-up" aria-hidden="true"></i></span>`;
+    break;
+			/* If gainloss = loss then show % and set text to red */
+    case 'loss': perc.innerHTML = `<span class="loss">${p}% <i class="fa fa-arrow-down" aria-hidden="true"></i></span>`;
+    break;
+			/* If gainloss = neutral then show % and set text to grey */
+    default: perc.innerHTML = `<span class="neutral">${p}%</span>`;
+  }
+})
+</script>
     </div>
   </div>
 </section>
 
-<section class="half"><center style="margin-right: 20px;margin-left: 20px;">We manage investments on the DOCchain, creating a secure public database of all transactions.</center>
+<section class="half"><center style="margin-right: 20px;margin-left: 20px;">A non-fungible token (NFT) is a unit of data on a digital ledger called a blockchain</center>
 </section>
 
 <section class="banner">
   <div class="banner3d-3">
     <div class="banner3d-3-front">
-    <a style="z-index: 99999999999999999999999; text-decoration:none;" target="_blank"><b style="color:#50C7C7;">DOC</b>chain</a><br>
+    <a href="https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/11801924658875302370127354303615614103006072134766457320534483645660586311681" style="z-index: 99999999999999999999999; text-decoration:none; color:#C7AD50;" target="_blank">View NFT</a>
     </div>
   </div>
   <div class="image"></div>
 </section>
 
-<section class="half"><center style="margin-right: 20px;margin-left: 20px;">We are challenging how donations are managed and information is accessed/protected.</center>
+<section class="half"><center style="margin-right: 20px;margin-left: 20px;">Each NFT can represent a unique digital item, and thus they are not interchangeable.</center>
 </section>
 
 
 <section class="banner">
   <div class="banner3c-2">
     <div class="banner3c-2-front">
-      <center>Currently in america:<br><br>Everytime you make a purchase - the <b style="color:#D95952;">location</b>, the method of <b style="color:#D95952;">payment</b>, and the <b style="color:#D95952;">identification</b> of the payer and reciever are stored in the <b style="color:#50C7C7;">cloud</b></center>
+      <center>Everytime you make an interaction - the <b style="color:#D95952;">location</b>, the method of <b style="color:#D95952;">payment</b>, and the <b style="color:#D95952;">identification</b> of the payer and reciever are stored on the <b style="color:#50C7C7;">blockchain</b></center>
     </div>
   </div>
 </section>
 
-<section class="half"><center>This information is monitored by multiple companies, sold to advertising agengies, and accumulated for digital target modeling</center>
+<section class="half"><center>The transaction as well as any additional data tied to the transaction are then transcribed.</center>
 </section>
 
 <section class="banner">
   <div class="banner3e-2">
     <div class="banner3e-2-front">
-    <center>This redundancy acts like the <b style="color:#D95952;">Blockchain</b> creating validation through numbers. We use this validation technique across multiple speadsheets in your local <b style="color:#50C7C7;">Network</b></center>
+    <center>The redundancy happens when <b style="color:#D95952;">millions</b> of validations occur simultaneously forming a <b style="color:#50C7C7;">block</b>. <br> <br> Each block after forms a link then replicates into a <b style="color:#50C7C7;">chain</b>.</center>
     </div>
   </div>
 </section>
@@ -173,31 +219,31 @@ animation: swim 2.4s ease alternate infinite;
 <section class="banner">
   <div class="banner3f-3">
     <div class="banner3f-3-front">
-    <a href="" style="z-index: 99999999999999999999999; text-decoration:none; color:#50C7C7;" target="_blank">cloud</a><br>network
+    <a href="https://ethereum.org/en/" style="z-index: 99999999999999999999999; text-decoration:none; color:#50C7C7;" target="_blank">Ethereum</a>
     </div>
   </div>
   <div class="image5"></div>
 </section>
 
-<section class="half"><center style="margin-right: 20px;margin-left: 20px;">An authenticated Google Docs curation for community driven data management</center>
+<section class="half"><center style="margin-right: 20px;margin-left: 20px;">the technology powering cryptocurrency and decentralized applications.</center>
 </section>
 
 
 <section class="banner">
   <div class="banner3g-2">
     <div class="banner3g-2-front">
-      <center><b style="color:#50C7C7;">100% Transparent</b><br><br>We are the first non-profit to showcase every financial aspect of the organization</center>
+      <center>We recommend using <a href="https://metamask.io/" style="z-index: 99999999999999999999999; text-decoration:none; color:#C7AD50;" target="_blank">Metamask</a> for <b style="color:#50C7C7;">digital asset management</b>.</center>
     </div>
   </div>
 </section>
 
-<section class="half"><center style="margin-right: 20px;margin-left: 20px;"> As the <b style="color:#50C7C7;">cloud</b> network grows, other data reliant entities will be held accountable by the accessability of our platform</center>
+<section class="half"><center style="margin-right: 20px;margin-left: 20px;">Tokens can be used for niche collectibles, to private property escrow.</center>
 </section>
 
 <section class="banner">
   <div class="banner3h-2">
     <div class="banner3h-2-front">
-    <center>You can directly and immediately see your donations <b style="color:#D95952;">impact</b> the community</center>
+    <center>All of our <b style="color:#D95952;">NFT</b>s can be publicly traded using digital wallets on the ethereum network.</center>
     </div>
   </div>
 </section>
@@ -207,46 +253,90 @@ animation: swim 2.4s ease alternate infinite;
 
   <div class="banner3b-3">
     <div class="banner3b-3-front">
-    The Why
+    Growth
     </div>
   </div>
 </section>
 
-<section class="half"><center>to create jobs,<br> to nourish community relations, and build <b style="color:#D95952;">permanent</b><br>affordable housing<br></center>
+<section class="half">
+
+    <center>Since launch in 2019 we've increased: <br> <a><div style="display:none;" id="live2"></div><h1><div id="percentage2"></div></h1></a></center>
+
+
+  <script>
+  const live2 = document.getElementById('live2');
+  const perc2 = document.getElementById('percentage2');
+  let gainloss2 = 'loss';
+
+  /*Fetch the required info via json, using the https://www.cryptocompare.com/api/ API */
+  fetch('https://min-api.cryptocompare.com/data/pricemultifull?fsyms=ETH&tsyms=USD&e=Coinbase')
+  .then((res) => res.json())
+  .then((data) => {
+  let livePrice2 = data.RAW.ETH.USD.PRICE;
+  let dayPrice2 = 200;
+  /* Calculate the percentage change between the 2 prices */
+  let p = parseFloat(((livePrice2 - dayPrice2) / dayPrice2) * 100).toFixed(2);
+
+  live2.innerHTML = `<h2>$${((livePrice2) * 2000)}</h2>`;
+
+  if(livePrice2 > dayPrice2) {
+    gainloss2 = 'gain';
+  } else if (livePrice2 < dayPrice2){
+    gainloss2 = 'loss';
+  }
+  else {
+    gainloss2 = 'neutral';
+  }
+  /* A case switch is used below, however it could be achieved with an if statement also */
+  switch (gainloss2)
+  {
+      /* If gainloss = gain then show % and set text to green */
+    case 'gain': perc2.innerHTML = `<span class="gain">${p}% <i class="fa fa-arrow-up" aria-hidden="true"></i></span>`;
+    break;
+      /* If gainloss = loss then show % and set text to red */
+    case 'loss': perc2.innerHTML = `<span class="loss">${p}% <i class="fa fa-arrow-down" aria-hidden="true"></i></span>`;
+    break;
+      /* If gainloss = neutral then show % and set text to grey */
+    default: perc2.innerHTML = `<span class="neutral">${p}%</span>`;
+  }
+  })
+  </script>
 </section>
 
 
 <section class="banner">
   <div class="banner3d-4">
     <div class="banner3d-4-front">
-      <center>Woodandmortar is our first application powered by <b style="color:#50C7C7;">cloud</b> Network Technology</center>
+      <center>We build apps, and NFTs to perpetuate <b style="color:#50C7C7;">block</b> creation which fuels ethereum price increase.</center>
     </div>
   </div>
 </section>
 
-<section class="half"><center>It connects Tradespeople with community requested Microbids which initate subcontract work</center>
+<section class="half">
+<center>The Gold membership comes with a collection of personalized tokens.</center>
 </section>
 
 <section class="banner">
   <div class="image6"></div>
   <div class="banner3c-3">
     <div class="banner3c-3-front">
-    <a href="" style="text-decoration:none; color:#C7AD50;" target="_blank">MicroBid</a>
+    <a href="https://etherscan.io/token/0x6c8b1ad764d3d5f6de14546145c3d9f3f098c6a7" style="text-decoration:none; color:#C7AD50;" target="_blank">Gold</a>
     </div>
   </div>
 </section>
 
-<section class="half"><center>The cloud network is compiled on Salmon.fund's enterprise google drive folder</center></section>
+<section class="half"><center>After we process your donation, you'll be contacted by Micheal for token curation.</center></section>
 
 <section class="banner">
   <div class="banner3d-6">
     <div class="banner3d-6-front">
-      <center> A new <b style="color:#C7AD50;">spreadsheet</b> and <b style="color:#C7AD50;">folder</b> is created for every account and given comment only access. <br><br> When a microbid is submitted, a new <b style="color:#C7AD50;">row</b> is generated with the data and propagated through its cloud network spreadsheets</center>
+      <center> A new <b style="color:#C7AD50;">membership</b> and <b style="color:#C7AD50;">10k tokens</b> are created every account.<br><br> When a new membership is processed all new <b style="color:#C7AD50;">token</b> data is propagated through the blockchain, to live on forever!</center>
     </div>
   </div>
 </section>
 
-<section class="mini"><a style="text-decoration:none; color:#000000; margin-top: 20px;margin-bottom: 20px;margin-right: 20px;margin-left: 20px;" href=""><center>Every member in your <b style="color:#50C7C7;">network</b> now has a <b style="color:#D95952;">copy</b></center></a></section>
+<section class="mini"><a style="text-decoration:none; color:#000000; margin-top: 20px;margin-bottom: 20px;margin-right: 20px;margin-left: 20px;" href=""><center>It's an <b style="color:#50C7C7;">investment</b>
+  in yourself and <b style="color:#D95952;">Ethereum</b></center></a></section>
 
 
 
@@ -257,17 +347,18 @@ animation: swim 2.4s ease alternate infinite;
 <section class="banner">
   <div class="banner3d-5">
     <div class="banner3d-5-front">
-      <a href="mailto:micheal@salmon.fund?Subject=Join%20our%20network&body=We%20require%20one%20additional%20digital%20identity%20like%20facebook%20or%20twitter%20for%20validation%20please%20copy%20and%20paste%20link%20below%20then%20submit%20this%20email" style="text-decoration:none; color:#D95952;" target="_blank">get invited</a>
+      <a href="mailto:micheal@salmon.fund?Subject=Join%20our%20network&body=We%20require%20one%20additional%20digital%20identity%20like%20facebook%20or%20twitter%20for%20validation%20please%20copy%20and%20paste%20link%20below%20then%20submit%20this%20email" style="text-decoration:none; color:#D95952;" target="_blank">Email us</a>
     </div>
   </div>
   <div class="image3"></div>
 </section>
 
-<section class="full"><center><a href="mailto:micheal@salmon.fund?Subject=Join%20our%20network&body=We%20require%20one%20additional%20digital%20identity%20like%20facebook%20or%20twitter%20for%20validation%20please%20copy%20and%20paste%20link%20below%20then%20submit%20this%20email" style="text-decoration:none; color:#D95952;" target="_blank">
-  Standing for affordability</a><br><br><font size="4.5em">
+<section class="full"><center>
   <a style="color:white">
-
-    Salmon Fund<br>Kansas 501(c)3   83-4300340<br>DUNS: 117197382 CAGE: 8EKK5<br>
+Kansas 501(c)3<br>
+83-4300340<br>
+DUNS: 117197382<br>
+CAGE: 8EKK5<br>
 </font><br><br>913.280.2336<br><font size="3em">micheal@salmon.fund</font></a></center></section>
 
 

@@ -420,7 +420,7 @@ section {
 
 .image {
   width:50%;
-  background:url(bitcoin.gif) no-repeat;
+  background:url(opensea.png) no-repeat;
   background-size:cover;
   background-position:center;
 }
@@ -530,14 +530,14 @@ section {
 
 .image5 {
   width:50%;
-  background:url(stream.gif) no-repeat;
+  background:url(blockchain.png) no-repeat;
   background-size:cover;
   background-position:center;
 }
 
 .image6 {
   width:50%;
-  background:url(amper.gif) no-repeat;
+  background:url(chart.png) no-repeat;
   background-size:cover;
   background-position:center;
   box-shadow: inset 25px 0px 20px 10px rgba(0,0,0,0.41)
@@ -703,13 +703,13 @@ section {
 
 .image3 {
   width:50%;
-  background:url(news.gif) no-repeat;
+  background:url(pointleftindex.gif) no-repeat;
   background-size:cover;
   background-position:center;
 }
 .image31 {
   width:50%;
-  background:url(metamask.gif) no-repeat;
+  background:url(guppy.png) no-repeat;
   background-size:cover;
   background-position:center;
 }
