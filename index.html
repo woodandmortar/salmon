@@ -119,69 +119,25 @@ animation: swim 2.4s ease alternate infinite;
 <section class="banner">
   <div class="banner3d-1">
     <div class="banner3d-1-front">
-      A <b style="color:#D95952;">Kansas City</b> investment platform aligning <b style="color:#50C7C7;">NFT</b>'s with curated <b style="color:#C7AD50;">donations</b>
+      A <b style="color:#D95952;">Kansas City</b> investment platform aligning <b style="color:#50C7C7;">NFTs</b> with curated <b style="color:#C7AD50;">donations</b>
     </div>
   </div>
   <div class="image2"></div>
 </section>
 
-<section class="mini"><font size="3em">micheal@salmon.fund</font></section>
+<section class="mini">
+  <center><div id="live"></div></center>
+</section>
 
 <section class="banner">
   <div class="banner3d-2">
     <div class="banner3d-2-front">
-<center>Our <b style="color:#D95952;">NFT</b> has a current value of <b style="color:#50C7C7;"><div id="live"></div></b></center> <br>
-
-    <nft-card
-    contractAddress="0x495f947276749ce646f68ac8c248420045cb7b5e"
-    tokenId="11801924658875302370127354303615614103006072134766457320534483645660586311681">
-    </nft-card>
-    <script src="https://unpkg.com/embeddable-nfts/dist/nft-card.min.js"></script>
-
-    <center><div id="percentage"></div></center>
-<script>
-const live = document.getElementById('live');
-const perc = document.getElementById('percentage');
-let gainloss = 'loss';
-
-/*Fetch the required info via json, using the https://www.cryptocompare.com/api/ API */
-fetch('https://min-api.cryptocompare.com/data/pricemultifull?fsyms=ETH&tsyms=USD&e=Coinbase')
-.then((res) => res.json())
-.then((data) => {
-  let livePrice = data.RAW.ETH.USD.PRICE;
-  let dayPrice = data.RAW.ETH.USD.OPEN24HOUR;
-	/* Calculate the percentage change between the 2 prices */
-  let p = parseFloat(((livePrice - dayPrice) / dayPrice) * 100).toFixed(2);
-
-  live.innerHTML = `<h2>$${((livePrice) * 2000)}</h2>`;
-
-  if(livePrice > dayPrice) {
-    gainloss = 'gain';
-  } else if (livePrice < dayPrice){
-    gainloss = 'loss';
-  }
-  else {
-    gainloss = 'neutral';
-  }
-	/* A case switch is used below, however it could be achieved with an if statement also */
-  switch (gainloss)
-  {
-			/* If gainloss = gain then show % and set text to green */
-    case 'gain': perc.innerHTML = `<span class="gain">${p}% <i class="fa fa-arrow-up" aria-hidden="true"></i></span>`;
-    break;
-			/* If gainloss = loss then show % and set text to red */
-    case 'loss': perc.innerHTML = `<span class="loss">${p}% <i class="fa fa-arrow-down" aria-hidden="true"></i></span>`;
-    break;
-			/* If gainloss = neutral then show % and set text to grey */
-    default: perc.innerHTML = `<span class="neutral">${p}%</span>`;
-  }
-})
-</script>
+  <center>Daily change<div id="percentage"></div></center>
     </div>
   </div>
 </section>
 
-<section class="half"><center style="margin-right: 20px;margin-left: 20px;">A non-fungible token (NFT) is a unit of data on a digital ledger called a blockchain</center>
+<section class="half"><center style="margin-right: 20px;margin-left: 20px;">Our non-fungible token (NFT) is a unique item on a digital ledger called a blockchain</center>
 </section>
 
 <section class="banner">
@@ -193,25 +149,26 @@ fetch('https://min-api.cryptocompare.com/data/pricemultifull?fsyms=ETH&tsyms=USD
   <div class="image"></div>
 </section>
 
-<section class="half"><center style="margin-right: 20px;margin-left: 20px;">Each NFT can represent a unique digital item, and thus they are not interchangeable.</center>
+<section class="half"><center style="margin-right: 20px;margin-left: 20px;">Everytime we make an <b style="color:#D95952;">NFT</b> - the metadata is stored on the <b style="color:#50C7C7;">blockchain</b></center>
 </section>
 
 
 <section class="banner">
   <div class="banner3c-2">
     <div class="banner3c-2-front">
-      <center>Everytime you make an interaction - the <b style="color:#D95952;">location</b>, the method of <b style="color:#D95952;">payment</b>, and the <b style="color:#D95952;">identification</b> of the payer and reciever are stored on the <b style="color:#50C7C7;">blockchain</b></center>
+      <center>
+      As ethereum is mined validation propagates the ledger and secures your NFT</center>
     </div>
   </div>
 </section>
 
-<section class="half"><center>The transaction as well as any additional data tied to the transaction are then transcribed.</center>
+<section class="half"><center>Non-interoperable<br>Indivisible<br>Indestructible<br>Verifiable</center>
 </section>
 
 <section class="banner">
   <div class="banner3e-2">
     <div class="banner3e-2-front">
-    <center>The redundancy happens when <b style="color:#D95952;">millions</b> of validations occur simultaneously forming a <b style="color:#50C7C7;">block</b>. <br> <br> Each block after forms a link then replicates into a <b style="color:#50C7C7;">chain</b>.</center>
+    <center><b style="color:#D95952;">The perfect gift</b></center>
     </div>
   </div>
 </section>
@@ -219,31 +176,31 @@ fetch('https://min-api.cryptocompare.com/data/pricemultifull?fsyms=ETH&tsyms=USD
 <section class="banner">
   <div class="banner3f-3">
     <div class="banner3f-3-front">
-    <a href="https://ethereum.org/en/" style="z-index: 99999999999999999999999; text-decoration:none; color:#50C7C7;" target="_blank">Ethereum</a>
+    <a href="https://ethereum.org/en/" style="z-index: 99999999999999999999999; text-decoration:none; color:#50C7C7;" target="_blank">Function</a>
     </div>
   </div>
   <div class="image5"></div>
 </section>
 
-<section class="half"><center style="margin-right: 20px;margin-left: 20px;">the technology powering cryptocurrency and decentralized applications.</center>
+<section class="half"><center style="margin-right: 20px;margin-left: 20px;"><b style="color:#50C7C7;">Digital assets</b> are managed on the ethereum network</center>
 </section>
 
 
 <section class="banner">
   <div class="banner3g-2">
     <div class="banner3g-2-front">
-      <center>We recommend using <a href="https://metamask.io/" style="z-index: 99999999999999999999999; text-decoration:none; color:#C7AD50;" target="_blank">Metamask</a> for <b style="color:#50C7C7;">digital asset management</b>.</center>
+      <center><b style="color:#C7AD50;">Royalties</b> are collected anytime our NFT changes owners</center>
     </div>
   </div>
 </section>
 
-<section class="half"><center style="margin-right: 20px;margin-left: 20px;">Tokens can be used for niche collectibles, to private property escrow.</center>
+<section class="half"><center style="margin-right: 20px;margin-left: 20px;">These exchanges fund our nonprofit and cost nothing!</center>
 </section>
 
 <section class="banner">
   <div class="banner3h-2">
     <div class="banner3h-2-front">
-    <center>All of our <b style="color:#D95952;">NFT</b>s can be publicly traded using digital wallets on the ethereum network.</center>
+    <center>All royalties go toward <b style="color:#D95952;">Kansas City</b> ethereum mining technology</center>
     </div>
   </div>
 </section>
@@ -307,36 +264,43 @@ fetch('https://min-api.cryptocompare.com/data/pricemultifull?fsyms=ETH&tsyms=USD
 <section class="banner">
   <div class="banner3d-4">
     <div class="banner3d-4-front">
-      <center>We build apps, and NFTs to perpetuate <b style="color:#50C7C7;">block</b> creation which fuels ethereum price increase.</center>
+      <center>13 Million USD was lost in misplaced <b style="color:#50C7C7;">Digital assets</b> in 2020</center>
     </div>
   </div>
 </section>
 
 <section class="half">
-<center>The Gold membership comes with a collection of personalized tokens.</center>
+<center>NFT collection is the perfect investment vechicle for post generation security</center>
 </section>
 
 <section class="banner">
   <div class="image6"></div>
   <div class="banner3c-3">
     <div class="banner3c-3-front">
-    <a href="https://etherscan.io/token/0x6c8b1ad764d3d5f6de14546145c3d9f3f098c6a7" style="text-decoration:none; color:#C7AD50;" target="_blank">Gold</a>
+    <a href="https://paypal.me/smnfund?locale.x=en_US" style="text-decoration:none; color:#C7AD50;" target="_blank">
+      <form action="https://www.paypal.com/donate" method="post" target="_top">
+      <input type="hidden" name="hosted_button_id" value="FNN3RTAA53UDU" />
+      <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+      <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+      </form>
+    </a>
     </div>
   </div>
 </section>
 
-<section class="half"><center>After we process your donation, you'll be contacted by Micheal for token curation.</center></section>
+<section class="half">
+  <center>Gain access to our monthly ethereum <b style="color:#C7AD50;">publication</b></center>
+</section>
 
 <section class="banner">
   <div class="banner3d-6">
     <div class="banner3d-6-front">
-      <center> A new <b style="color:#C7AD50;">membership</b> and <b style="color:#C7AD50;">10k tokens</b> are created every account.<br><br> When a new membership is processed all new <b style="color:#C7AD50;">token</b> data is propagated through the blockchain, to live on forever!</center>
+      <img width="100%" src="blockchain.png">
     </div>
   </div>
 </section>
 
-<section class="mini"><a style="text-decoration:none; color:#000000; margin-top: 20px;margin-bottom: 20px;margin-right: 20px;margin-left: 20px;" href=""><center>It's an <b style="color:#50C7C7;">investment</b>
-  in yourself and <b style="color:#D95952;">Ethereum</b></center></a></section>
+<section class="mini"><a style="text-decoration:none; color:#000000; margin-top: 20px;margin-bottom: 20px;margin-right: 20px;margin-left: 20px;" href=""><center>Create your <b style="color:#50C7C7;">Legacy</b></center></a></section>
 
 
 
@@ -347,7 +311,7 @@ fetch('https://min-api.cryptocompare.com/data/pricemultifull?fsyms=ETH&tsyms=USD
 <section class="banner">
   <div class="banner3d-5">
     <div class="banner3d-5-front">
-      <a href="mailto:micheal@salmon.fund?Subject=Join%20our%20network&body=We%20require%20one%20additional%20digital%20identity%20like%20facebook%20or%20twitter%20for%20validation%20please%20copy%20and%20paste%20link%20below%20then%20submit%20this%20email" style="text-decoration:none; color:#D95952;" target="_blank">Email us</a>
+      <a href="mailto:micheal@salmon.fund?Subject=Join%20our%20network&body=Welcome%20to%20.Fund" style="text-decoration:none; color:#D95952;" target="_blank">Email</a>
     </div>
   </div>
   <div class="image3"></div>
@@ -408,6 +372,45 @@ function createRipples(x,y){
 
 setInterval(createRipples, 500);
 
+</script>
+
+<script>
+const live = document.getElementById('live');
+const perc = document.getElementById('percentage');
+let gainloss = 'loss';
+
+/*Fetch the required info via json, using the https://www.cryptocompare.com/api/ API */
+fetch('https://min-api.cryptocompare.com/data/pricemultifull?fsyms=ETH&tsyms=USD&e=Coinbase')
+.then((res) => res.json())
+.then((data) => {
+  let livePrice = data.RAW.ETH.USD.PRICE;
+  let dayPrice = data.RAW.ETH.USD.OPEN24HOUR;
+  /* Calculate the percentage change between the 2 prices */
+  let p = parseFloat(((livePrice - dayPrice) / dayPrice) * 100).toFixed(2);
+
+  live.innerHTML = `Value $${((livePrice) * 2000)}`;
+
+  if(livePrice > dayPrice) {
+    gainloss = 'gain';
+  } else if (livePrice < dayPrice){
+    gainloss = 'loss';
+  }
+  else {
+    gainloss = 'neutral';
+  }
+  /* A case switch is used below, however it could be achieved with an if statement also */
+  switch (gainloss)
+  {
+      /* If gainloss = gain then show % and set text to green */
+    case 'gain': perc.innerHTML = `<span class="gain">${p}% <i class="fa fa-arrow-up" aria-hidden="true" style="color:green;"></i></span>`;
+    break;
+      /* If gainloss = loss then show % and set text to red */
+    case 'loss': perc.innerHTML = `<span class="loss">${p}% <i class="fa fa-arrow-down" aria-hidden="true" style="color:red;"></i></span>`;
+    break;
+      /* If gainloss = neutral then show % and set text to grey */
+    default: perc.innerHTML = `<span class="neutral">${p}%</span>`;
+  }
+})
 </script>
 
 </body>
