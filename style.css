@@ -420,7 +420,7 @@ section {
 
 .image {
   width:50%;
-  background:url(farm.png) no-repeat;
+  background:url(guppy.png) no-repeat;
   background-size:cover;
   background-position:center;
 }
@@ -703,7 +703,7 @@ section {
 
 .image3 {
   width:50%;
-  background:url(guppy.png) no-repeat;
+  background:url(wave.gif) no-repeat;
   background-size:cover;
   background-position:center;
 }
