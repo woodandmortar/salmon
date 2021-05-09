@@ -151,10 +151,10 @@ ul li a:hover span:nth-child(4) {
   transition:transform .5s;
 }
 
-.ethereum:hover {
+.sync:hover {
   color: #3b5998;
 }
-.ethereum:hover span {
+.sync:hover span {
   background: #3b5998;
 }
 .facebook:hover {
@@ -162,6 +162,18 @@ ul li a:hover span:nth-child(4) {
 }
 .facebook:hover span {
   background: #1da1f2;
+}
+.print:hover {
+  color: #40a89a;
+}
+.print:hover span {
+  background: #40a89a;
+}
+.wallet:hover {
+  color: #3bcc3b;
+}
+.wallet:hover span {
+  background: #3bcc3b;
 }
 .teacher:hover {
   color: #c32aa3;
@@ -187,7 +199,6 @@ ul li a:hover:nth-child(4) {
 </style>
 </head>
 <body>
-
 
 
 <section class="full">
@@ -259,12 +270,43 @@ ul li a:hover:nth-child(4) {
       </a>
     </li>
     <li>
-      <a class="ethereum" href="https://etherscan.io/token/0x6c8b1ad764d3d5f6de14546145c3d9f3f098c6a7" target="_blank">
+      <a class="print" href="https://docs.google.com/document/d/1-97AK6AYhnLHBV0GTbXsRFA4nzpxcOkyUERK1yhNPDA/edit?fbclid=IwAR3G_7fN37u8bYHpBpbijxjtCAUZXE8qyAm3BLj3DJFEPC5Byg3UQvZyY9k" target="_blank">
         <span></span>
         <span></span>
         <span></span>
         <span></span>
-        <i class="fab fa-ethereum" aria-hidden="true"></i>
+        <i class="fas fa-print" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li>
+      <a class="wallet" href="https://etherscan.io/address/0x1a17a71358b41afbcac2c1b891e1509554170640" target="_blank">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <i class="fas fa-wallet" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+</section>
+
+<section class="banner">
+  <div class="banner3d-2">
+    <div class="banner3d-2-front">
+  <center>Daily change<div id="percentage"></div><br>
+    </div>
+  </div>
+</section>
+
+<section class="half"><center style="margin-right: 20px;margin-left: 20px;">
+  <ul>
+    <li>
+      <a class="sync" onclick="init();" target="_blank">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <i class="fas fa-sync-alt" aria-hidden="true"></i>
       </a>
     </li>
     <li>
@@ -286,24 +328,16 @@ ul li a:hover:nth-child(4) {
       </a>
     </li>
   </ul>
-</section>
 
-<section class="banner">
-  <div class="banner3d-2">
-    <div class="banner3d-2-front">
-  <center>Daily change<div id="percentage"></div><br><b style="color:#C7AD50;"><div id="live"></div></b></center>
-    </div>
-  </div>
-</section>
+  <generatePhoto2></generatePhoto2>
 
-<section class="half"><center style="margin-right: 20px;margin-left: 20px;"><br>Micheal Salmon stands on sustainability with universal digital rights
 </center>
 </section>
 
 <section class="banner">
   <div class="banner3d-3">
     <div class="banner3d-3-front">
-    <a href="create/index.html" style="z-index: 99999999999999999999999; text-decoration:none; color:#C7AD50;" target="_blank">Create</a>
+    <a href="create/index.html" style="z-index: 99999999999999999999999; text-decoration:none; color:#D95952;" target="_blank">Create</a>
     </div>
   </div>
   <div class="image"></div>
@@ -311,7 +345,7 @@ ul li a:hover:nth-child(4) {
 
 <section class="half">
 
-  <center style="margin-right: 20px;margin-left: 20px;">Click <b style="color:#50C7C7;">Create</b>, to launch your own <b style="color:#D95952;">I</b>nitial <b style="color:#D95952;">C</b>oin <b style="color:#D95952;">O</b>ffering</center>
+  <center style="margin-right: 20px;margin-left: 20px;">Click <b style="color:#D95952;">Create</b>, to start your own <b style="color:#2e0511;">I</b>nitial <b style="color:#2e0511;">C</b>oin <b style="color:#2e0511;">O</b>ffering</center>
 
 </section>
 
@@ -437,13 +471,14 @@ mining serves another vital purpose: It is the only way to release new cryptocur
 
 <section class="half">
 <center>We <b style="color:#50C7C7;">mint</b> digital currency</center>
+
 </section>
 
 <section class="banner">
   <div class="image3"></div>
   <div class="banner3c-3">
     <div class="banner3c-3-front">
-      <a href="https://etherscan.io/token/0x6c8b1ad764d3d5f6de14546145c3d9f3f098c6a7" style="z-index: 99999999999999999999999; text-decoration:none; color:#C7AD50;" target="_blank">Pools</a>
+      <a href="https://etherscan.io/token/0x6c8b1ad764d3d5f6de14546145c3d9f3f098c6a7" style="z-index: 99999999999999999999999; text-decoration:none; color:#C7AD50;" target="_blank"><div id="live"></div></a>
     </div>
   </div>
 </section>
@@ -492,14 +527,36 @@ mining serves another vital purpose: It is the only way to release new cryptocur
   913.280.2336 | micheal@salmon.fund</font></a></center></section>
 
 
+  <script>
 
+  mNum = -1;
+
+    var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1qS7H-40VknGiL1my1idkjkdr4qMbB9j8JlHA16RTnwA/pub?hl=en_US&hl=en_US&hl=en_US&output=html';
+    function init() {Tabletop.init( { key: public_spreadsheet_url,callback: showInfo,simpleSheet: true } );}
+          function showInfo(data) {
+              mNum += 1;
+              $("#divpost").remove();
+              $("generatePhoto2").append(
+              "<div id='divpost' style='position:block'><iframe src="
+               + data[mNum].Photo + " width='"
+                + data[mNum].Width + "' height='"
+                 + data[mNum].Height + "' style='border:none;overflow:hidden' scrolling='no' frameborder='0' allowfullscreen='true' allow='autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share'></iframe></center></div>");
+  }
+
+  </script>
 
 <!-- partial -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/ScrollTrigger.min.js'></script>
 <script  src="./script.js"></script>
+<script  src="./tabletop.js"></script>
 
 <script>
+
+init();
+window.setTimeout(function () {
+  window.location.reload();
+}, 300000);
 
 function myFunction(q) {
 
