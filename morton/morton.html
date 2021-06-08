@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Morton.Fund</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <html class="no-js" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <META NAME="KEYWORDS" CONTENT="blockchain, Bitcoin, eth, btc, token, fungible, #NFT, NFT, morton, ethereum, non profit, nonprofit, non-profit, not for profit, not-for-profit">
+      <META NAME="ROBOTS" CONTENT="ALL,FOLLOW">
+          <meta name="description" content="Digital NFT Assistant">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <link rel="apple-touch-icon" sizes="180x180" href="brain.png">
+              <link rel="icon" type="image/png" href="brain.png" sizes="32x32">
+              <link rel="icon" type="image/png" href="brain.png" sizes="16x16">
+              <link rel="mask-icon" href="brain.png" color="#fff">
+              <link rel="shortcut icon" href="brain.png">
+
+              <!-- Global site tag (gtag.js) - Google Analytics -->
+              <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169278237-1"></script>
+              <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'UA-169278237-1');
+              </script>
+              <meta name="google-site-verification" content="7GgW9-7H6_sBdVnqAqKctqwcMM-FweFQ1tlbEgrv2NY" />
+              <script src="https://kit.fontawesome.com/bdd89edb33.js" crossorigin="anonymous"></script>
+
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <meta name="google-signin-client_id" content="654969589080-t9cp8hfjcisageccakdscqmqq89cs0iu.apps.googleusercontent.com">
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+        <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+
+              <!-- Global site tag (gtag.js) - Google Analytics -->
+              <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123535120-1"></script>
+              <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'UA-123535120-1');
+              </script>
+
+      <link rel="stylesheet" href="style.css">
+
+      <script src="https://apis.google.com/js/platform.js" async defer></script>
+      <meta name="google-signin-client_id" content="930580119599-2j4jj0rjjdr7vkrurdsq5ecnsqm029tb.apps.googleusercontent.com">
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+      <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123535120-1"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'UA-123535120-1');
+            </script>
+
+</head>
+
+
+
+<style>
+
+.salmonTail {
+transform: translateX(-4px);
+animation: swim 2.4s ease alternate infinite;
+}
+@keyframes swim {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(-4px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+.walker {
+
+position: fixed;
+  animation: walking 10s infinite;
+
+
+}
+
+@keyframes walking
+{
+    from {
+        left: 0;
+        bottom: -40px;
+    }
+    to {
+        left: 100%;
+        bottom: -40px;
+    }
+}
+
+.bounce {
+  -moz-animation: bounce 12s infinite;
+  -webkit-animation: bounce 12s infinite;
+  animation: bounce 12s infinite;
+}
+
+@keyframes bounce {
+  0%, 10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 90%, 100% {
+    transform: translateY(0);
+  }
+  7%, 17%, 27%, 37%, 47%, 57%, 67%, 77%, 87%, 97%  {
+    transform: translateY(16px);
+  }
+  13%, 23%, 33%, 43%, 53%, 63%, 73%, 83%, 93%  {
+    transform: translateY(10px);
+  }
+}
+
+#B div:not(:first-child) {
+  display: none;
+}
+
+</style>
+
+<body>
+
+
+
+
+
+<div id="item3" style="
+  position:absolute;
+  display: none;
+  bottom:100px; right:5px;
+  background: rgba(0, 0, 00, 0.8);
+  border-radius: 5px;
+  color: white;
+  padding: 0.85em;
+  margin: 0.5em;">
+
+  <span id="vresp1"><b>No Login</b></span>
+  <br><button id="button1" class="open-modal2" href="#" onClick="startGeoLookup()" style="z-index:999999999999999999999;"><span id="vresp9">Clock in</span></button>
+  <form id="form1" style="display:none;">
+    <select class="open-modal" id="mySelect" style="height:20px;width:100px;font-size:12px
+    z-index:999999999999999999999;">
+      <option value="None" selected>Options</option>
+      <option value="Food Deduction">Lunch</option>
+        <option value="Drywall">Drywall</option>
+        <option value="Texture">Texture</option>
+        <option value="Painting">Painting</option>
+        <option value="Tile">Tile</option>
+        <option value="Woodwork">Woodwork</option>
+        <option value="Demolition">Demolition</option>
+    </select>
+  </form>
+  <br/>
+                Last Update: <b id="hud1a">0</b> <br>
+                Level: <b id="hud2">0</b> <br>
+                Bank: <b id="hud3">0</b> <br>
+                Mcreds: <b id="hud4">0</b> <br>
+                Earned Hours: <b id="hud5">0</b> <br>
+                <div style="display:none;" id="finalSolution"></div>
+
+</div>
+<g onclick="window.location.href='index.html'" value="Redirect">
+<div id="item4" style="
+  position:absolute;
+  top: 0px;
+  right:5px;">
+<img id="profilePic" src="salmon.svg" style="z-index:999999999999999999999; width:60px;">
+</div></g>
+
+
+<div id="item6" style="
+  position:absolute;
+  bottom:5px; right:15px;">
+<button class="open-modal1" href="#" id="changeDash" onClick="changeDash()">INFO</button>
+</div>
+
+<div id="item7" style="
+  position:absolute;
+  top:15px; left:15px;">
+<div class="g-signin2" data-onsuccess="onSignIn"></div>
+</div>
+
+
+
+  <div style="position:absolute;">
+  <svg class="dn">
+    <defs>
+      <symbol id="svg-confetti">
+        <path fill="currentColor" d="M-.017 6.91L4.035.012l2.587 1.52L2.57 8.43z"></path>
+      </symbol>
+    </defs>
+  </svg>
+</div>
+<!-- partial:index.partial.html -->
+<canvas id="canvas"></canvas>
+
+
+<div id="item4" style="
+  position:absolute;
+  align-content: center;
+  top:100px;
+  width: 90vw;
+  padding: 0.85em;
+  margin: 0.5em;">
+  <div id="foo4">
+    <div id="item" class="chat" style="color:white; font-size:1.2em;" >
+          <ul class="chatlist">
+            <li class="bot__output bot__output--standard">Hey, I'm Morton - your digital navigator.</li>
+            <li class="bot__output bot__output--standard">
+              <span class="bot__output--second-sentence">You can ask me a bunch of things!</span>
+              <ul>
+                <li class="input__nested-list">Something like tell me <span class="bot__command">about</span>yoursself.</li>
+                <li class="input__nested-list">I'm ready for <span class="bot__command">testing</span></li>
+                <li class="input__nested-list">Typing <span class="bot__command">commands</span> will generate a short list.</li>
+              </ul>
+              You could also scroll type back to select another subject.
+            </li>
+          </ul>
+        <div class="chatbox-area">
+          <form action="" id="chatform">
+              <textarea placeholder="Talk to me!" class="chatbox" name="chatbox" resize: "none" minlength="2"></textarea>
+              <input class="submit-button" type="submit" value="send">
+          </form>
+        </div>
+          </div>
+
+  </div>
+</div>
+
+
+
+<div id="item5" style="
+  position:absolute;
+  align-content: center;
+  top:35px;
+  border-radius: 5px;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 3em;
+  color: #D95952;
+">
+<p><center>Tokens <b id="vTime">0</b></center><p>
+</div>
+
+<div id="B" class="walker">
+  <div></div>
+  <div></div>
+  <div></div>
+      <div><image class="bounce" src="micheal.png" onclick="found()"></div>
+        <div></div>
+        <div></div>
+  </div>
+
+
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js'></script>
+  <script  src="./script.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+  <script  src="js/index.js"></script>
+  <script  src="js/animate.js"></script>
+  <script  src="js/tabletop.js"></script>
+  <script  src="js/tabletop2.js"></script>
+  <script  src="js/tabletop3.js"></script>
+
+  <script>
+
+  function found(){
+    var videoTime = parseInt(document.getElementById("vTime").innerHTML);
+    videoTime += 1;
+    document.getElementById("vTime").innerHTML = videoTime;
+    confetti();
+    }
+
+  $(function() {
+    var n = 0;
+    setInterval(function() {
+        n = Math.floor((Math.random() * 6));
+        $("#B div").hide();
+        $("#B").find('div:eq('+n+')').show();
+    },5000);
+  });
+
+  function randomize(collection) {
+    var randomNumber = Math.floor(Math.random() * collection.length);
+    return collection[randomNumber]
+  }
+
+
+  function changeDash() {
+    var x = document.getElementById("changeDash");
+    if (x.innerHTML === "CLOSE") {
+      x.innerHTML = "INFO";
+      document.getElementById("item3").style.display = "none";
+    } else {
+      x.innerHTML = "CLOSE";
+      document.getElementById("item3").style.display = "block";
+    }
+  }
+
+
+  function menuChange() {
+    var x = document.getElementById("menuChange");
+    if (x.innerHTML === "CLOSE") {
+      x.innerHTML = "OPEN CHAT";
+      document.getElementById("item").style.display = "none";
+    } else {
+      x.innerHTML = "CLOSE";
+      document.getElementById("item").style.display = "block";
+    }
+  }
+
+  var toggleVisibility = function(element) {
+    if(element.style.display=='block'){
+        element.style.display='none';
+    } else {
+        element.style.display='block';
+    }
+  }
+
+  var toggleVisibility2 = function(element) {
+    if(element.style.display=='none'){
+        element.style.display='block';
+    } else {
+        element.style.display='none';
+    }
+  }
+
+
+          var sendForm = document.querySelector('#chatform'),
+              textInput = document.querySelector('.chatbox'),
+              chatList = document.querySelector('.chatlist'),
+              userBubble = document.querySelectorAll('.userInput'),
+              botBubble = document.querySelectorAll('.bot__output'),
+              animateBotBubble = document.querySelectorAll('.bot__input--animation'),
+              overview = document.querySelector('.chatbot__overview'),
+              hasCorrectInput,
+              imgLoader = false,
+              animationCounter = 1,
+              animationBubbleDelay = 600,
+              input,
+              previousInput,
+              isReaction = false,
+              unkwnCommReaction = "I don't understand, can you check your spelling please.",
+              chatbotButton = document.querySelector(".submit-button")
+
+          sendForm.onkeydown = function(e){
+            if(e.keyCode == 13){
+              e.preventDefault();
+
+              //No mix ups with upper and lowercases
+              var input = textInput.value.toLowerCase();
+
+              //Empty textarea fix
+              if(input.length > 0) {
+                createBubble(input)
+              }
+            }
+          };
+
+          sendForm.addEventListener('submit', function(e) {
+            //so form doesnt submit page (no page refresh)
+            e.preventDefault();
+
+            //No mix ups with upper and lowercases
+            var input = textInput.value.toLowerCase();
+
+            //Empty textarea fix
+            if(input.length > 0) {
+              createBubble(input)
+            }
+          }) //end of eventlistener
+
+          var createBubble = function(input) {
+            //create input bubble
+            var chatBubble = document.createElement('li');
+            chatBubble.classList.add('userInput');
+
+            //adds input of textarea to chatbubble list item
+            chatBubble.innerHTML = input;
+
+            //adds chatBubble to chatlist
+            chatList.appendChild(chatBubble)
+
+            checkInput(input);
+          }
+
+          var checkInput = function(input) {
+            hasCorrectInput = false;
+            isReaction = false;
+            //Checks all text values in possibleInput
+            for(var textVal in possibleInput){
+              //If user reacts with "yes" and the previous input was in textVal
+              if(input == "yes" || input.indexOf("yes") >= 0){
+                if(previousInput == textVal) {
+                  console.log("sausigheid");
+
+                  isReaction = true;
+                  hasCorrectInput = true;
+                  botResponse(textVal);
+                }
+              }
+              if(input == "no" && previousInput == textVal){
+                unkwnCommReaction = "For a list of commands type: Commands";
+                unknownCommand("I'm sorry to hear that :(")
+                unknownCommand(unkwnCommReaction);
+                hasCorrectInput = true;
+              }
+              //Is a word of the input also in possibleInput object?
+              if(input == textVal || input.indexOf(textVal) >=0 && isReaction == false){
+                console.log("succes");
+                hasCorrectInput = true;
+                botResponse(textVal);
+              }
+            }
+            //When input is not in possibleInput
+            if(hasCorrectInput == false){
+              console.log("failed");
+              unknownCommand(unkwnCommReaction);
+              hasCorrectInput = true;
+            }
+          }
+
+          // debugger;
+
+          function botResponse(textVal) {
+            //sets previous input to that what was called
+            // previousInput = input;
+
+            //create response bubble
+            var userBubble = document.createElement('li');
+            userBubble.classList.add('bot__output');
+
+            if(isReaction == true){
+              if (typeof reactionInput[textVal] === "function") {
+              //adds input of textarea to chatbubble list item
+                userBubble.innerHTML = reactionInput[textVal]();
+              } else {
+                userBubble.innerHTML = reactionInput[textVal];
+              }
+            }
+
+            if(isReaction == false){
+              //Is the command a function?
+              if (typeof possibleInput[textVal] === "function") {
+                // console.log(possibleInput[textVal] +" is a function");
+              //adds input of textarea to chatbubble list item
+                userBubble.innerHTML = possibleInput[textVal]();
+              } else {
+                userBubble.innerHTML = possibleInput[textVal];
+              }
+            }
+            //add list item to chatlist
+            chatList.appendChild(userBubble) //adds chatBubble to chatlist
+
+            // reset text area input
+            textInput.value = "";
+          }
+
+          function unknownCommand(unkwnCommReaction) {
+            // animationCounter = 1;
+
+            //create response bubble
+            var failedResponse = document.createElement('li');
+
+            failedResponse.classList.add('bot__output');
+            failedResponse.classList.add('bot__output--failed');
+
+            //Add text to failedResponse
+            failedResponse.innerHTML = unkwnCommReaction; //adds input of textarea to chatbubble list item
+
+            //add list item to chatlist
+            chatList.appendChild(failedResponse) //adds chatBubble to chatlist
+
+            animateBotOutput();
+
+            // reset text area input
+            textInput.value = "";
+
+            //Sets chatlist scroll to bottom
+            chatList.scrollTop = chatList.scrollHeight;
+
+            animationCounter = 1;
+          }
+
+          function responseText(e) {
+
+            var response = document.createElement('li');
+
+            response.classList.add('bot__output');
+
+            //Adds whatever is given to responseText() to response bubble
+            response.innerHTML = e;
+
+            chatList.appendChild(response);
+
+            animateBotOutput();
+
+            console.log(response.clientHeight);
+
+            //Sets chatlist scroll to bottom
+            setTimeout(function(){
+              chatList.scrollTop = chatList.scrollHeight;
+              console.log(response.clientHeight);
+            }, 0)
+          }
+
+          function responseImg(e) {
+            var image = new Image();
+
+            image.classList.add('bot__output');
+            //Custom class for styling
+            image.classList.add('bot__outputImage');
+            //Gets the image
+            image.src = "./"+e;
+            chatList.appendChild(image);
+
+            animateBotOutput()
+            if(image.completed) {
+              chatList.scrollTop = chatList.scrollTop + image.scrollHeight;
+            }
+            else {
+              image.addEventListener('load', function(){
+                chatList.scrollTop = chatList.scrollTop + image.scrollHeight;
+              })
+            }
+          }
+
+          function animateBotOutput() {
+            chatList.lastElementChild.style.animationDelay= (animationCounter * animationBubbleDelay)+"ms";
+            animationCounter++;
+            chatList.lastElementChild.style.animationPlayState = "running";
+          }
+
+          function commandReset(e){
+            animationCounter = 1;
+            previousInput = Object.keys(possibleInput)[e];
+          }
+
+
+          var possibleInput = {
+            // "hlep" : this.help(),
+            "help" : function(){
+              responseText("try trying something like... show BEST WORK")
+              responseText("Typing COMMANDS will always bring up the main list.")
+              commandReset(0);
+              return
+              },
+            "best work" : function(){
+              responseText("I will show you our best work!");
+              responseImg("image0.jpg");
+              responseImg("image1.jpg");
+              responseImg("image2.jpg");
+              responseImg("image3.jpg");
+              responseImg("image4.jpg");
+              responseText("Would you like to see more? (Yes/No)")
+              commandReset(1);
+              return
+              },
+            "about" : function(){
+              responseText("Morton here, your digital assistant for everything WoodandMortar.");
+              responseText("I'm also a Salmon.fund expert.");
+              responseText("Using your google account, I'll be able to remember you.");
+              responseText("Would you like to connect? (Yes/No)");
+              commandReset(2);
+              return
+              },
+            "experience" : function(){
+              responseText("We've completed 21 High-end to Flip Kitchens in the past 8 months");
+              responseText("We sub-contract 75% of our work load, to Kansas City non-profits through our mentorship platform.");
+              responseText("Micheal Salmon, Founder and Co-Owner pays special attention to project details and workflow ensuring the best possible value.");
+              responseText("Crycella Freitag, Co-Owner and human resource powerhouse manages all aspects of communication, logistics and finance.");
+              responseText("Would you like to see our Business Process Manual? (Yes/No)");
+              commandReset(3);
+              return
+            },
+            "specials" : function(){
+              responseText("Spring means decks, patios, and landscaping");
+              responseText("We're ordering our lumber for summer projects, so all appointments made before june 29th get all lumber AT COST.");
+              responseText("$6000 Two-Story decks");
+              responseText("$4000 /room Water Damage Reframe");
+              responseText("$2500 Emperor's Tree House");
+              commandReset(4);
+              return
+            },
+            "theme" : function(){
+              responseText("Our 2019 aesthetic begin with:");
+              responseText("Chic Grey Walls");
+              responseText("Satin Ultra-White Trim");
+              responseText("Midnight Horse Black Front Door");
+              responseText("Forest Green, Faded Two-Tone Exterior");
+              commandReset(5);
+              return
+            },
+            "vision" : function(){
+              responseText("We are aiming for completing WoodandMortar.edu by 2022");
+              responseText("By training locals in specialized trades,");
+              responseText("we are giving equal oppourtunity for high yield local property investments and ownership.");
+              responseText("Our tradespeople will be the backbone for Kansas City remodeling.");
+              commandReset(6);
+              return
+            },
+            "contact" : function(){
+              responseText("email: <a href='mailto:micheal.mfg@gmail.com?Subject=Hello%20Micheal' target='_top'>send me a message</a>");
+              commandReset(7);
+              return
+            },
+            "morton" : function(){
+              responseText("UmmmmmHmmmmmm.... Yes?");
+              commandReset(8);
+              return
+            },
+            "commands" : function(){
+              responseText("about, best work, contact, mcred <br> specials, theme, experience, vision");
+              commandReset(9);
+              return
+            },
+            "mcred" : function(){
+              responseText("<a href='https://drive.google.com/open?id=10lbMd2b0YuqKF9mq5D9gMK6g58yQ849lJ2_LwJ3QpRI' target='_blank'>Safety Training</a> <br>  <a href='https://drive.google.com/open?id=1aovEiosNLQ2Bv09UtQuf15Pxf28PXco4ogT02ryoF1w' target='_blank'>Safety Practices</a> <br> <a href='https://drive.google.com/open?id=1OLezOcO7mLV8Jc0Mp6sy9o4HodRoHZlT67xecsrpbTM' style='color:red;' target='_blank'>Safety TEST</a>");
+              responseText("<a href='https://drive.google.com/open?id=1sIbw07cA7386r0BX2-nRuf5_6BO8obgt4868zk1MMvU' target='_blank'>Drywall & Texture Study Guide</a> <br>  <a href='https://drive.google.com/open?id=1mfcnDzY4__0RGBMBmOoUm3KWVUxoXyYwWuwHNY7M788' style='color:red;' target='_blank'>Drywall & Texture TEST</a> ");
+              responseText("<a href='https://drive.google.com/open?id=1ywAJ7PvYA3WsdG1ninCW0S8H18etPnLJ_asRghmqP9I' target='_blank'>Painting Study Guide</a> <br>  <a href='https://drive.google.com/open?id=1mKbNJ-wTZ9MlJrOtLc1Ei4C0f08HrpTnUIPmk2l_25I' style='color:red;' target='_blank'>Painting TEST</a> ");
+              responseText("<a href='https://drive.google.com/open?id=16vgbiM7Y6I2D4UYYffhL44UDrJ1iHVMNTo7DJ7uQTCE' target='_blank'>Tile Study Guide</a> <br>  <a href='https://drive.google.com/open?id=1fUV4WDuQJfwW7cukP1aoeFlR0ZgY1MVK3IWeqdO4jH4' style='color:red;' target='_blank'>Tile TEST</a> ");
+              commandReset(13);
+              return
+            },
+            "receipt" : function(){
+              responseText("We'll need a photo of the receipt.");
+                setTimeout(function() {window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSf7j7tfOSDwOR2U5UIarKxhRsUwIlBhoJkOtSq7kDAPmUl-3Q/viewform"}, 4000);
+                },
+          }
+
+
+
+
+
+
+
+          var reactionInput = {
+            "best work" : function(){
+              responseText("<a href='https://woodandmortar.github.io/'>Click the arrows on our homepage</a>")
+              responseText("On this GitHub page you'll find everything about Morton");
+              responseText("<a href='https://github.com/woodandmortar'>WoodandMortar on GitHub</a>")
+              animationCounter = 1;
+              return
+            },
+            "about" : function(){
+              responseText("I'll need to use GMAIL as your contact point.");
+              setTimeout(function(){
+                window.location.href = "mailto:info@woodandmortar.com?Subject=Hello%20again&body=If%20GMAIL%20didnt%20open%20please%20send%20a%20gmail%20message%20to%20my%20sender%20address"; }, 4000);
+                animationCounter = 1;
+              return
+              },
+            "experience" : function(){
+              responseText("I will redirect you a printable Business Process Manual");
+              setTimeout(function(){
+                window.location.href = "https://docs.google.com/document/d/1OAgXxoruvHMqD7lyAqu0m1Bq082rXp7g2Z1wcc-vZnY/edit?usp=sharing"; }, 6000);
+              animationCounter = 1;
+              return
+            }
+          }
+
+</script>
+</body>
+</html>
