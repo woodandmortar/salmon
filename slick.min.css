@@ -176,15 +176,63 @@ display: none;
         opacity: .1;
       }
 
-  .imageWrapper {
-    position: absolute;
-  bottom: -150px;
-  left: 0px;
-  transition: opacity 1s ease-out, top 3s ease-out;
-  background: none;
-visibility: hidden;
-}
 
+      .circle-wrapper {
+        display: inline-block
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+      }
+
+      .neon-green-image {
+        display: block;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 0 auto;
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 50%;
+        border: 5px solid transparent;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        transition: transform 0.5s ease-in-out;
+      }
+
+      .neon-green-image:hover {
+        border: 5px dotted #1aff00;
+        animation: wiggle 0.5s ease-in-out;
+      }
+
+      @keyframes wiggle {
+        0% {
+          transform: rotate(0deg);
+        }
+        50% {
+          transform: rotate(5deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+
+      .neon-green-image:active {
+        animation: bounce 0.5s ease-in-out;
+      }
+
+      @keyframes bounce {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
 
 
   .wrapper {

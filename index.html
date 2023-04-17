@@ -30,10 +30,6 @@
 <style>
 
 
-  body * {
-    box-sizing: border-box;
-  }
-
   html, body {
     height: 100%;
     margin: 0;
@@ -99,10 +95,10 @@
   	</div>
 </div>
 
-
+<div class="circle-wrapper"><img class="neon-green-image" src="micheal.png"></div>
 
   </body>
-  <div class="imageWrapper"><img style="height:600px;" src="micheal.png"></div>
+
 
   	<div class="carousel">
   		<div class="section section-1"></div>
@@ -159,9 +155,6 @@
   		});
 
 
-
-  	</script>
-  <script>
   		function openNotecard() {
   			var notecard = document.getElementById("notecard");
   			notecard.style.display = "block";
@@ -171,8 +164,7 @@
   			var notecard = document.getElementById("notecard");
   			notecard.style.display = "none";
   		}
-  	</script>
-<script>
+
 const audioBtn = document.getElementById("audioBtn");
 
 let stream;
@@ -203,7 +195,7 @@ audioBtn.addEventListener("mouseup", () => {
     // Let's define a command.
     const commands = {
       'hello': () => {
-        var myImg2 = document.querySelector(".imageWrapper");
+        var myImg2 = document.querySelector(".circleWrapper");
 			myImg2.style.visibility = "visible";
 			setTimeout(function() {
 				myImg2.style.opacity = "1";
@@ -244,11 +236,6 @@ audioBtn.addEventListener("mouseup", () => {
     annyang.addCommands(commands);
 
   }
-  </script>
-
-
-
-<script>
 
   var toggleVisibility = function(element) {
     if(element.style.display=='block'){
