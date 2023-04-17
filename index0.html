@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - MATERIAL FULL-PAGE MENU</title>
+  <meta charset="utf-8" />
+
+<!-- Android bar-->
+<meta name="theme-color" content="#444">
+
+<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body onload="initMap()">
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANMlxs_5nMLgjNt-42_Jc2BMenN0bQwcg"></script>
+  <script>
+      var map, marker, geofences, watchID;
+
+      function initMap() {
+          // Initialize the map
+          map = new google.maps.Map(document.getElementById('map'), {
+              center: { lat: 39.0107, lng: -94.5322 }, // Swope Park
+              zoom: 15,
+              disableDefaultUI: true
+          });
+
+          // Add a marker to the map
+          marker = new google.maps.Marker({
+              position: { lat: 39.0107, lng: -94.5322 },
+              map: map,
+              title: 'Current Location'
+          });
+
+          // Create an array of geofences
+          geofences = [
+              {
+                  center: { lat: 39.0107, lng: -94.5322 },
+                  radius: 200, // in meters
+                  strokeColor: '#FF0000',
+                  strokeOpacity: 0.8,
+                  strokeWeight: 4,
+                  fillColor: '#FF0000',
+                  fillOpacity: 0.2,
+                  alertRadius: 200,
+                  alertText: 'You have entered the Q Area!'
+              },
+              {
+                  center: { lat: 39.0127, lng: -94.5352 },
+                  radius: 100, // in meters
+                  strokeColor: '#00FF00',
+                  strokeOpacity: 0.8,
+                  strokeWeight: 4,
+                  fillColor: '#00FF00',
+                  fillOpacity: 0.2,
+                  alertRadius: 10,
+                  alertText: 'You are very close to the park entrance!'
+              },
+              {
+                  center: { lat: 39.0097, lng: -94.5302 },
+                  radius: 300, // in meters
+                  strokeColor: '#0000FF',
+                  strokeOpacity: 0.8,
+                  strokeWeight: 4,
+                  fillColor: '#0000FF',
+                  fillOpacity: 0.2,
+                  alertRadius: 200,
+                  alertText: 'You have entered the playground area!'
+              }
+          ];
+
+          // Create the geofences
+          geofences.forEach(function (geofence) {
+              new google.maps.Circle({
+                  center: geofence.center,
+                  radius: geofence.radius,
+                  strokeColor: geofence.strokeColor,
+                  strokeOpacity: geofence.strokeOpacity,
+                  strokeWeight: geofence.strokeWeight,
+                  fillColor: geofence.fillColor,
+                  fillOpacity: geofence.fillOpacity,
+                  map: map
+              });
+          });
+
+          // Watch the user's location and check if they enter or leave the geofences
+          watchID = navigator.geolocation.watchPosition(function (position) {
+              var userLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+              // Update the marker position
+              marker.setPosition(userLocation);
+
+              // Check if the user is inside or outside any of the geofences
+              geofences.forEach(function (geofence) {
+                  if (google.maps.geometry.spherical.computeDistanceBetween(userLocation, geofence.center) <= geofence.alertRadius) {
+                      alert(geofence.alertText);
+                  }
+              });
+          });
+      }
+
+      function stopWatching() {
+          // Stop watching the user's location
+          navigator.geolocation.clearWatch(watchID);
+      }
+  </script>
+<!-- partial:index.partial.html -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><span>heart</span> <span>web</span></a>
+    </div>
+    <div class="sandwich" id="btn">
+      <span class="top"></span>
+      <span class="middle"></span>
+      <span class="bottom"></span>
+    </div>
+    <div class="menu" id="menu">
+      <div class="menu-list">
+        <ul>
+          <li><a href="#">Chi Siamo</a></li>
+          <li><a href="#">Portfoglio</a></li>
+          <li><a href="#">Offerte</a></li>
+          <li><a href="#">Contatti</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+<main>
+<div id="#home" class="div-gradient">
+	<div class="text-gradient">
+		<h1>Lorem Ipsum</h1>
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <div id="map" style="height: 100vh;"></div>
+        <button onclick="stopWatching()">Stop Watching</button>
+			</div>
+		</div>
+	</div>
+  <div class="img-gradient"></div>
+  <div class="gradient"></div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+			<!--<div class="panel">
+				<div class="row">
+					<div class="col-xs-12">
+						<h1 class="title">Chi siamo</h1>
+					</div>
+					<div class="col-xs-8">
+						<p class="simple-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus faucibus felis pulvinar laoreet feugiat. Morbi sit amet ex et lacus semper lobortis. Pellentesque lectus ante, efficitur et lorem vel, tempus mattis enim. In non pulvinar nisi, vel rutrum nisl. Maecenas nec risus vitae elit pulvinar semper eget sit amet diam. Fusce risus lacus, accumsan ut ligula vel, gravida imperdiet orci. Praesent aliquet sagittis tellus, non tristique massa tempor vitae.</p>
+					</div>
+					<div class="col-xs-4">
+
+							<img src="http://cdn-media-2.lifehack.org/wp-content/files/2013/04/33.jpg" class="img-panel-circle">
+
+					</div>
+				</div>
+			</div>
+		-->
+			<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus faucibus felis pulvinar laoreet feugiat. Morbi sit amet ex et lacus semper lobortis. Pellentesque lectus ante, efficitur et lorem vel, tempus mattis enim. In non pulvinar nisi, vel rutrum nisl. Maecenas nec risus vitae elit pulvinar semper eget sit amet diam. Fusce risus lacus, accumsan ut ligula vel, gravida imperdiet orci. Praesent aliquet sagittis tellus, non tristique massa tempor vitae.
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus faucibus felis pulvinar laoreet feugiat. Morbi sit amet ex et lacus semper lobortis. Pellentesque lectus ante, efficitur et lorem vel, tempus mattis enim. In non pulvinar nisi, vel rutrum nisl. Maecenas nec risus vitae elit pulvinar semper eget sit amet diam. Fusce risus lacus, accumsan ut ligula vel, gravida imperdiet orci. Praesent aliquet sagittis tellus, non tristique massa tempor vitae.
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus faucibus felis pulvinar laoreet feugiat. Morbi sit amet ex et lacus semper lobortis. Pellentesque lectus ante, efficitur et lorem vel, tempus mattis enim. In non pulvinar nisi, vel rutrum nisl. Maecenas nec risus vitae elit pulvinar semper eget sit amet diam. Fusce risus lacus, accumsan ut ligula vel, gravida imperdiet orci. Praesent aliquet sagittis tellus, non tristique massa tempor vitae.
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus faucibus felis pulvinar laoreet feugiat. Morbi sit amet ex et lacus semper lobortis. Pellentesque lectus ante, efficitur et lorem vel, tempus mattis enim. In non pulvinar nisi, vel rutrum nisl. Maecenas nec risus vitae elit pulvinar semper eget sit amet diam. Fusce risus lacus, accumsan ut ligula vel, gravida imperdiet orci. Praesent aliquet sagittis tellus, non tristique massa tempor vitae.
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus faucibus felis pulvinar laoreet feugiat. Morbi sit amet ex et lacus semper lobortis. Pellentesque lectus ante, efficitur et lorem vel, tempus mattis enim. In non pulvinar nisi, vel rutrum nisl. Maecenas nec risus vitae elit pulvinar semper eget sit amet diam. Fusce risus lacus, accumsan ut ligula vel, gravida imperdiet orci. Praesent aliquet sagittis tellus, non tristique massa tempor vitae.
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus faucibus felis pulvinar laoreet feugiat. Morbi sit amet ex et lacus semper lobortis. Pellentesque lectus ante, efficitur et lorem vel, tempus mattis enim. In non pulvinar nisi, vel rutrum nisl. Maecenas nec risus vitae elit pulvinar semper eget sit amet diam. Fusce risus lacus, accumsan ut ligula vel, gravida imperdiet orci. Praesent aliquet sagittis tellus, non tristique massa tempor vitae.
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus faucibus felis pulvinar laoreet feugiat. Morbi sit amet ex et lacus semper lobortis. Pellentesque lectus ante, efficitur et lorem vel, tempus mattis enim. In non pulvinar nisi, vel rutrum nisl. Maecenas nec risus vitae elit pulvinar semper eget sit amet diam. Fusce risus lacus, accumsan ut ligula vel, gravida imperdiet orci. Praesent aliquet sagittis tellus, non tristique massa tempor vitae.
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus faucibus felis pulvinar laoreet feugiat. Morbi sit amet ex et lacus semper lobortis. Pellentesque lectus ante, efficitur et lorem vel, tempus mattis enim. In non pulvinar nisi, vel rutrum nisl. Maecenas nec risus vitae elit pulvinar semper eget sit amet diam. Fusce risus lacus, accumsan ut ligula vel, gravida imperdiet orci. Praesent aliquet sagittis tellus, non tristique massa tempor vitae.
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus faucibus felis pulvinar laoreet feugiat. Morbi sit amet ex et lacus semper lobortis. Pellentesque lectus ante, efficitur et lorem vel, tempus mattis enim. In non pulvinar nisi, vel rutrum nisl. Maecenas nec risus vitae elit pulvinar semper eget sit amet diam. Fusce risus lacus, accumsan ut ligula vel, gravida imperdiet orci. Praesent aliquet sagittis tellus, non tristique massa tempor vitae.
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus faucibus felis pulvinar laoreet feugiat. Morbi sit amet ex et lacus semper lobortis. Pellentesque lectus ante, efficitur et lorem vel, tempus mattis enim. In non pulvinar nisi, vel rutrum nisl. Maecenas nec risus vitae elit pulvinar semper eget sit amet diam. Fusce risus lacus, accumsan ut ligula vel, gravida imperdiet orci. Praesent aliquet sagittis tellus, non tristique massa tempor vitae.
+			</p>
+    </div>
+  </div>
+</div>
+<main>
+<!-- partial -->
+  <script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

@@ -3,98 +3,152 @@
   <head>
     <meta charset="UTF-8">
     <title>Compass</title>
-    <style>
-      #compass-container {
-   position: absolute;
-   z-index: 999999999999;
-   top: 0;
-   left: 50%;
-   transform: translateX(-50%);
-   width: 300px;
-   height: 300px;
- }
-      #compass {
-        width: 100%;
-        height: 100%;
-        max-width: 400px;
-        max-height: 400px;
-      }
-    </style>
+<link rel="stylesheet" href="./style.css">
+<script src="https://kit.fontawesome.com/605a1dc14a.js" crossorigin="anonymous"></script>
+
   </head>
-  <body>
-    <div id="compass-container">
-    <svg id="compass" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-      <g transform="translate(200,200)">
-        <!-- Circle with tick marks for North, East, South, and West -->
-        <circle r="180" stroke="#000" fill="none" stroke-width="2" />
-        <line x1="0" y1="-180" x2="0" y2="-150" stroke="#000" stroke-width="2" />
-        <line x1="180" y1="0" x2="150" y2="0" stroke="#000" stroke-width="2" />
-        <line x1="0" y1="180" x2="0" y2="150" stroke="#000" stroke-width="2" />
-        <line x1="-180" y1="0" x2="-150" y2="0" stroke="#000" stroke-width="2" />
-        <!-- Red needle to indicate direction -->
-        <line id="needle" x1="0" y1="0" x2="0" y2="-150" stroke="#f00" stroke-width="5" />
-      </g>
-    </svg>
-    </div>
-    <script>
-      window.addEventListener('deviceorientation', function(event) {
-        var alpha = event.alpha;
-        document.getElementById("needle").setAttribute("transform", "rotate(" + alpha + ")");
-      });
-    </script>
+
+
+<style>
+  #profile-photo {
+    position: absolute;
+    z-index: 99999999999999;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+</style>
+
+
+  <nav class="menu">
+   <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" />
+   <label class="menu-open-button" for="menu-open">
+    <span class="lines line-1"></span>
+    <span class="lines line-2"></span>
+    <span class="lines line-3"></span>
+  </label>
+
+   <a href="#" class="menu-item blue"> <i class="fa fa-anchor"></i> </a>
+   <a href="#" class="menu-item green"> <i class="fa fa-coffee"></i> </a>
+   <a href="#" class="menu-item red"> <i class="fa fa-heart"></i> </a>
+   <a href="#" class="menu-item purple"> <i class="fa fa-microphone"></i> </a>
+   <a href="#" class="menu-item orange"> <i class="fa fa-star"></i> </a>
+   <a onclick="stopWatching()" class="menu-item lightblue"> <i class="fa fa-diamond"></i> </a>
+</nav>
+
+
+<body onload="initMap()">
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANMlxs_5nMLgjNt-42_Jc2BMenN0bQwcg"></script>
   <script>
-    var map, marker, geofence, watchID;
+  function onSignIn(googleUser) {
+    // Get the user's profile information
+    var profile = googleUser.getBasicProfile();
 
-    function initMap() {
-      // Initialize the map
-      map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 39.0107, lng: -94.5322}, // Swope Park
-        zoom: 15
-      });
+    // Display the user's profile photo in the profile photo container
+    var profilePhoto = document.getElementById('profile-photo');
+    profilePhoto.style.backgroundImage = 'url(' + profile.getImageUrl() + ')';
 
-      // Add a marker to the map
-      marker = new google.maps.Marker({
-        position: {lat: 39.0107, lng: -94.5322},
-        map: map,
-        title: 'Current Location'
-      });
+    // TODO: Add logic to handle the user's authentication status
+  }
+</script>
 
-      // Add a geofence around the marker
-      geofence = new google.maps.Circle({
-        center: {lat: 39.0107, lng: -94.5322},
-        radius: 200, // in meters
-        strokeColor: '#FF0000',
-        strokeOpacity: 0.8,
-        strokeWeight: 4,
-        fillColor: '#FF0000',
-        fillOpacity: 0.2,
-        map: map
-      });
+  <script>
+      var map, marker, geofences, watchID;
 
-      // Watch the user's location and check if they enter or leave the geofence
-      watchID = navigator.geolocation.watchPosition(function(position) {
-        var userLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+      function initMap() {
+          // Initialize the map
+          map = new google.maps.Map(document.getElementById('map'), {
+              center: { lat: 39.0107, lng: -94.5322 }, // Swope Park
+              zoom: 15,
+              disableDefaultUI: true
+          });
 
-        // Update the marker position
-        marker.setPosition(userLocation);
+          // Add a marker to the map
+          marker = new google.maps.Marker({
+              position: { lat: 39.0107, lng: -94.5322 },
+              map: map,
+              title: 'Current Location'
+          });
 
-        // Check if the user is inside or outside the geofence
-        if (google.maps.geometry.spherical.computeDistanceBetween(userLocation, geofence.getCenter()) <= geofence.getRadius()) {
-          alert('You have entered the Q Area!');
-        } else {
-          alert('You have left the Quest Area!');
-        }
-      });
-    }
+          // Create an array of geofences
+          geofences = [
+              {
+                  center: { lat: 39.0107, lng: -94.5322 },
+                  radius: 200, // in meters
+                  strokeColor: '#FF0000',
+                  strokeOpacity: 0.8,
+                  strokeWeight: 4,
+                  fillColor: '#FF0000',
+                  fillOpacity: 0.2,
+                  alertRadius: 200,
+                  alertText: 'You have entered the Q Area!'
+              },
+              {
+                  center: { lat: 39.0127, lng: -94.5352 },
+                  radius: 100, // in meters
+                  strokeColor: '#00FF00',
+                  strokeOpacity: 0.8,
+                  strokeWeight: 4,
+                  fillColor: '#00FF00',
+                  fillOpacity: 0.2,
+                  alertRadius: 10,
+                  alertText: 'You are very close to the park entrance!'
+              },
+              {
+                  center: { lat: 39.0097, lng: -94.5302 },
+                  radius: 300, // in meters
+                  strokeColor: '#0000FF',
+                  strokeOpacity: 0.8,
+                  strokeWeight: 4,
+                  fillColor: '#0000FF',
+                  fillOpacity: 0.2,
+                  alertRadius: 200,
+                  alertText: 'You have entered the playground area!'
+              }
+          ];
 
-    function stopWatching() {
-      // Stop watching the user's location
-      navigator.geolocation.clearWatch(watchID);
-    }
+          // Create the geofences
+          geofences.forEach(function (geofence) {
+              new google.maps.Circle({
+                  center: geofence.center,
+                  radius: geofence.radius,
+                  strokeColor: geofence.strokeColor,
+                  strokeOpacity: geofence.strokeOpacity,
+                  strokeWeight: geofence.strokeWeight,
+                  fillColor: geofence.fillColor,
+                  fillOpacity: geofence.fillOpacity,
+                  map: map
+              });
+          });
+
+          // Watch the user's location and check if they enter or leave the geofences
+          watchID = navigator.geolocation.watchPosition(function (position) {
+              var userLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+              // Update the marker position
+              marker.setPosition(userLocation);
+
+              // Check if the user is inside or outside any of the geofences
+              geofences.forEach(function (geofence) {
+                  if (google.maps.geometry.spherical.computeDistanceBetween(userLocation, geofence.center) <= geofence.alertRadius) {
+                      alert(geofence.alertText);
+                  }
+              });
+          });
+      }
+
+      function stopWatching() {
+          // Stop watching the user's location
+          navigator.geolocation.clearWatch(watchID);
+      }
   </script>
-<body onload="initMap()">
-  <div id="map" style="height: 100vh;"></div>
-  <button onclick="stopWatching()">Stop Watching</button>
-</body>
+    <div id="map" style="height: 100vh;"></div>
+  <div class="g-signin2" data-onsuccess="onSignIn"></div>
+  <div id="profile-photo"></div>
+
+  </body>
+
 </html>
