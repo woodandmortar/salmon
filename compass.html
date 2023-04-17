@@ -5,7 +5,8 @@
     <title>Compass</title>
 <link rel="stylesheet" href="./style.css">
 <script src="https://kit.fontawesome.com/605a1dc14a.js" crossorigin="anonymous"></script>
-
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<meta name="google-signin-client_id" content="930580119599-p51vgjujpe4m5ut8rn1ffbvo2bgv695b.apps.googleusercontent.com">
   </head>
 
 
@@ -56,7 +57,7 @@
   }
 </script>
 
-  <script>
+<script>
       var map, marker, geofences, watchID;
 
       function initMap() {
@@ -77,18 +78,18 @@
           // Create an array of geofences
           geofences = [
               {
-                  center: { lat: 39.0107, lng: -94.5322 },
+                  center: { lat: 39.0130, lng: -94.5472 },
                   radius: 200, // in meters
-                  strokeColor: '#FF0000',
-                  strokeOpacity: 0.8,
+                  strokeColor: 'white',
+                  strokeOpacity: 0,
                   strokeWeight: 4,
-                  fillColor: '#FF0000',
-                  fillOpacity: 0.2,
+                  fillColor: 'white',
+                  fillOpacity: 0,
                   alertRadius: 200,
-                  alertText: 'You have entered the Q Area!'
+                  alertText: 'You died during the haunt!'
               },
               {
-                  center: { lat: 39.0127, lng: -94.5352 },
+                  center: { lat: 39.0127, lng: -94.5452 },
                   radius: 100, // in meters
                   strokeColor: '#00FF00',
                   strokeOpacity: 0.8,
@@ -96,18 +97,18 @@
                   fillColor: '#00FF00',
                   fillOpacity: 0.2,
                   alertRadius: 10,
-                  alertText: 'You are very close to the park entrance!'
+                  alertText: 'You have entered the park Haunt area!'
               },
               {
-                  center: { lat: 39.0097, lng: -94.5302 },
-                  radius: 300, // in meters
+                  center: { lat: 39.0140, lng: -94.5492 },
+                  radius: 200, // in meters
                   strokeColor: '#0000FF',
                   strokeOpacity: 0.8,
                   strokeWeight: 4,
                   fillColor: '#0000FF',
                   fillOpacity: 0.2,
                   alertRadius: 200,
-                  alertText: 'You have entered the playground area!'
+                  alertText: 'You are now inside the boss area!'
               }
           ];
 
@@ -135,6 +136,9 @@
               // Check if the user is inside or outside any of the geofences
               geofences.forEach(function (geofence) {
                   if (google.maps.geometry.spherical.computeDistanceBetween(userLocation, geofence.center) <= geofence.alertRadius) {
+                      if (geofence.alertText === 'You died during the haunt!') {
+                          window.location.href = 'https://unsplash.com/photos/u6OnpbMuZAs';
+                      }
                       alert(geofence.alertText);
                   }
               });
@@ -146,6 +150,7 @@
           navigator.geolocation.clearWatch(watchID);
       }
   </script>
+
 
   <div id="profile-photo"><div class="g-signin2" data-onsuccess="onSignIn"></div></div>
 
