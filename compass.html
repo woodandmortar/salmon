@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Compass</title>
+    <style>
+      #compass {
+        width: 100%;
+        height: 100%;
+        max-width: 400px;
+        max-height: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <svg id="compass" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(200,200)">
+        <!-- Circle with tick marks for North, East, South, and West -->
+        <circle r="180" stroke="#000" fill="none" stroke-width="2" />
+        <line x1="0" y1="-180" x2="0" y2="-150" stroke="#000" stroke-width="2" />
+        <line x1="180" y1="0" x2="150" y2="0" stroke="#000" stroke-width="2" />
+        <line x1="0" y1="180" x2="0" y2="150" stroke="#000" stroke-width="2" />
+        <line x1="-180" y1="0" x2="-150" y2="0" stroke="#000" stroke-width="2" />
+        <!-- Red needle to indicate direction -->
+        <line id="needle" x1="0" y1="0" x2="0" y2="-150" stroke="#f00" stroke-width="5" />
+      </g>
+    </svg>
+    <script>
+      window.addEventListener('deviceorientation', function(event) {
+        var alpha = event.alpha;
+        document.getElementById("needle").setAttribute("transform", "rotate(" + alpha + ")");
+      });
+    </script>
+  </body>
+</html>
