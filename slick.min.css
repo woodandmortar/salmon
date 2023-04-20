@@ -130,50 +130,45 @@ display: none;
 
       .section-1 {
         background-image: url("wall1.png");
-        background-color: black;
+        background-color: transparent;
         background-repeat: no-repeat;
         background-size: cover;
-        opacity: .1;
+        opacity: .7;
       }
 
       .section-2 {
         background-image: url("wall2.jpg");
-        background-color: black;
+        background-color: transparent;
         background-repeat: no-repeat;
         background-size: cover;
-        opacity: .1;
       }
 
       .section-3 {
         background-image: url("wall3.jpg");
-        background-color: black;
+        background-color: transparent;
         background-repeat: no-repeat;
         background-size: cover;
-        opacity: .1;
       }
 
       .section-4 {
-        background-image: url("wall4.png");
-        background-color: black;
+        background-image: none;
+        background-color: transparent;
         background-repeat: no-repeat;
         background-size: cover;
-        opacity: .1;
       }
 
       .section-5 {
         background-image: url("wall5.jpg");
-        background-color: black;
+        background-color: transparent;
         background-repeat: no-repeat;
         background-size: cover;
-        opacity: .1;
       }
 
       .section-6 {
         background-image: url("wall6.png");
-        background-color: black;
+        background-color: transparent;
         background-repeat: no-repeat;
         background-size: cover;
-        opacity: .1;
       }
 
 

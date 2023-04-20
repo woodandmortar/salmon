@@ -8,7 +8,8 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch&display=swap" rel="stylesheet">
-
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core@5/index.css'>
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/markers-plugin@5/index.css'>
 
         <html class="no-js" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <META NAME="KEYWORDS" CONTENT="Micheal, Lawrence, Salmon, Micheal Lawrence, Micheal Salmon, Micheal Lawrence Salmon, salmon.fund, salom fund, salmon_fund, non profit, 501, Kansas City, Kansas, missouri">
@@ -25,7 +26,7 @@
     <title>WoodandMortar</title>
 
 
-    
+
 <link rel="stylesheet" href="./slick.min.css">
 <link rel="stylesheet" href="./slick-theme.min.css">
     <script src='annyang.js'></script>
@@ -39,6 +40,13 @@
     margin: 0;
     padding: 0;
     font-family: 'Cabin Sketch', cursive;
+  }
+
+  #viewer {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    font-family: sans-serif;
   }
 
 </style>
@@ -85,11 +93,11 @@
         </svg>
     </div>
 
-<p id="sentence" class="vresponse">Enable audio in the <b>NOTECARD</b> for best experience. Try saying "Hello" or "Hey Micheal" to get my attention.</p>
+<p id="sentence" class="vresponse">Try saying <b>"Hello" or "Hey Micheal"</b> to get my attention.</p>
 
 <div class="button-container">
   <button class="svg-button" id="open-btn" onclick="openNotecard()">Options</button>
-  <button class="svg-button" id="audioBtn" onclick="annyang.start()">Hold to talk</button>
+  <button class="svg-button" id="audioBtn" onclick="annyang.start()">Push to talk</button>
 
   	<div id="notecard">
   			<button class="svg-button">Facebook</button>
@@ -108,8 +116,48 @@
   		<div class="section section-1"></div>
   		<div class="section section-2"></div>
   		<div class="section section-3"></div>
-      <div class="section section-4"></div>
-  		<div class="section section-5"></div>
+      <div class="section section-4">
+        <body>
+        <!-- partial:index.partial.html -->
+        <div id="viewer"></div>
+
+      </div>
+  		<div class="section section-5">
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <title>Scary Ghost</title>
+            <style>
+              /* Center the div */
+              .center {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 90vh;
+              }
+
+              /* Style the div */
+              .ghost {
+                max-width: 80vw;
+                padding: 20px;
+                background-color: #fff;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+                text-align: center;
+                font-size: 1em;
+              }
+            </style>
+          </head>
+          <body>
+            <div class="center">
+              <div class="ghost">
+                <h1>The Terrifying Ghost of the Abandoned Mansion</h1>
+                <p>Legend has it that the ghost of the old mansion is still haunting the halls to this day. Its ghostly apparition has been seen by many grown men who dared to enter the abandoned mansion. The ghost is said to be an old man with a long white beard and glowing eyes, who carries a lantern and walks with a limp. If you ever come across this ghost, beware, for it is said that he will follow you home and haunt you for the rest of your days!</p>
+              </div>
+            </div>
+          </body>
+        </html>
+
+      </div>
   		<div class="section section-6"></div>
   	</div>
 
@@ -120,8 +168,7 @@
   			$('.carousel').slick({
   				dots: false,
   				infinite: false,
-          autoplay: true,  // enable auto-scrolling
-          autoplaySpeed: 2000,
+          autoplay: false,  // enable auto-scrolling
   				speed: 500,
   				slidesToShow: 1,
   				slidesToScroll: 1,
@@ -136,7 +183,7 @@
   						settings: {
   							slidesToShow: 1,
   							slidesToScroll: 1,
-  							infinite: true,
+  							infinite: false,
   							dots: true
   						}
   					},
@@ -257,4 +304,8 @@ audioBtn.addEventListener("mouseup", () => {
     }
   }
 </script>
+<script src='https://cdn.jsdelivr.net/npm/three/build/three.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core@5/index.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/markers-plugin@5/index.js'></script>
+<script  src="./script0.js"></script>
 </html>
