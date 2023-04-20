@@ -1,47 +1,46 @@
 <head>
-  <style>
-    #panorama {
-      width: 100%;
-      height: 500px;
-    }
-    .info-hotspot {
-      background-color: #fff;
-      color: #333;
-      padding: 5px;
-      border-radius: 5px;
-      font-size: 16px;
-      font-weight: bold;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    }
-  </style>
+  <link rel="stylesheet" href="https://photo-sphere-viewer.js.org/assets/photo-sphere-viewer.css">
+  <script src="https://photo-sphere-viewer.js.org/assets/three.js"></script>
+  <script src="https://photo-sphere-viewer.js.org/assets/D.min.js"></script>
+  <script src="https://photo-sphere-viewer.js.org/assets/doT.min.js"></script>
+  <script src="https://photo-sphere-viewer.js.org/dist/photo-sphere-viewer.min.js"></script>
 </head>
 
-<body>
-  <div id="panorama"></div>
+<div id="panorama"></div>
 
-  <script src="https://cdn.pannellum.org/2.5/pannellum.js"></script>
-  <script>
-    pannellum.viewer('panorama', {
-      "type": "equirectangular",
-      "panorama": "pano.jpg",
-      "autoLoad": true,
-      "showControls": false,
-      "hotSpots": [
-        {
-          "pitch": 8,
-          "yaw": 50,
-          "type": "info",
-          "text": "This is the new fireplace.",
-          "cssClass": "info-hotspot"
-        },
-        {
-          "pitch": -10,
-          "yaw": -120,
-          "type": "info",
-          "text": "This is the new flooring.",
-          "cssClass": "info-hotspot"
-        }
-      ]
-    });
-  </script>
-</body>
+<script>
+  var PSV = new PhotoSphereViewer({
+    panorama: 'pano.jpg',
+    container: 'panorama',
+    loadingImg: 'https://photo-sphere-viewer.js.org/assets/photosphere-logo.gif',
+    navbar: 'auto',
+    caption: 'Remodeled Living Room',
+    default: {
+      firstScene: 'living-room',
+      author: 'Wood & Mortar Remodeling',
+      date: '2023',
+    },
+    scenes: {
+      'living-room': {
+        type: 'equirectangular',
+        panorama: 'pano.jpg',
+        hotspots: [
+          {
+            pitch: 8,
+            yaw: 50,
+            type: 'info',
+            text: 'This is the new fireplace.',
+            CSSClass: 'custom-tooltip',
+          },
+          {
+            pitch: -10,
+            yaw: -120,
+            type: 'info',
+            text: 'This is the new flooring.',
+            CSSClass: 'custom-tooltip',
+          }
+        ],
+      },
+    },
+  });
+</script>
