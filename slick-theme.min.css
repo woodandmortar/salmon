@@ -138,3 +138,48 @@ background: 0 0;
 }
 
 .slick-dots li button:focus, .slick-dots li button:hover
+
+
+
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Cabin Sketch', cursive;
+  }
+
+  #profile-photo {
+    position: absolute;
+    z-index: 99999999999999;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: white;
+  }
+  #signin {
+    position: absolute;
+    z-index: 99999999999999;
+    top: 0;
+    right: 0;
+  }
+  #counter {
+    background-color: green;
+  }
+  #counter.counter-1 {
+    background-color: yellow;
+  }
+  #counter.counter-2 {
+    background-color: orange;
+  }
+  #counter.counter-3 {
+    background-color: darkorange;
+  }
+  #counter.counter-4 {
+    background-color: crimson;
+  }
+  #counter.counter-5 {
+    background-color: red;
+  }
