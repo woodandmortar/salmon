@@ -22,6 +22,12 @@
     overflow: hidden;
     background: white;
   }
+  #signin {
+    position: absolute;
+    z-index: 99999999999999;
+    bottom: 0;
+    right: 0;
+  }
 </style>
 
 
@@ -53,110 +59,200 @@
     var profilePhoto = document.getElementById('profile-photo');
     profilePhoto.style.backgroundImage = 'url(' + profile.getImageUrl() + ')';
 
-    // TODO: Add logic to handle the user's authentication status
   }
 </script>
 
 <script>
-      var map, marker, geofences, watchID;
+var map, marker, geofences, watchID, circle, counter;
 
-      function initMap() {
-          // Initialize the map
-          map = new google.maps.Map(document.getElementById('map'), {
-              center: { lat: 39.0107, lng: -94.5322 }, // Swope Park
-              zoom: 15,
-              disableDefaultUI: true
-          });
+function initMap() {
+  // Initialize the map
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: { lat: 39.0107, lng: -94.5322 }, // Swope Park
+    zoom: 15,
+    disableDefaultUI: true
+  });
 
-          // Add a marker to the map
-          marker = new google.maps.Marker({
-              position: { lat: 39.0107, lng: -94.5322 },
-              map: map,
-              title: 'Current Location'
-          });
+  // Add a marker to the map
+  marker = new google.maps.Marker({
+    position: { lat: 39.0107, lng: -94.5322 },
+    map: map,
+    title: 'Current Location'
+  });
 
-          // Create an array of geofences
-          geofences = [
-              {
-                  center: { lat: 39.0130, lng: -94.5472 },
-                  radius: 200, // in meters
-                  strokeColor: 'white',
-                  strokeOpacity: 0,
-                  strokeWeight: 4,
-                  fillColor: 'white',
-                  fillOpacity: 0,
-                  alertRadius: 200,
-                  alertText: 'You died during the haunt!'
-              },
-              {
-                  center: { lat: 39.0127, lng: -94.5452 },
-                  radius: 100, // in meters
-                  strokeColor: '#00FF00',
-                  strokeOpacity: 0.3,
-                  strokeWeight: 4,
-                  fillColor: '#00FF00',
-                  fillOpacity: 0.2,
-                  alertRadius: 20,
-                  alertText: 'You have entered the park Haunt area!'
-              },
-              {
-                  center: { lat: 39.0140, lng: -94.5492 },
-                  radius: 200, // in meters
-                  strokeColor: '#0000FF',
-                  strokeOpacity: 0.3,
-                  strokeWeight: 4,
-                  fillColor: '#0000FF',
-                  fillOpacity: 0.2,
-                  alertRadius: 20,
-                  alertText: 'You are now inside the boss area!'
-              }
-          ];
+  // Create an array of geofences
+  geofences = [
+    {
+      bounds: {
+        north: 39.0120,
+        south: 39.0107,
+        east: -94.5315,
+        west: -94.5322
+      },
+      alertText: 'You touched the first wall!'
+    },
+    {
+      bounds: {
+        north: 39.0114,
+        south: 39.0094,
+        east: -94.5315,
+        west: -94.5303
+      },
+      alertText: 'You touched the second wall!'
+    },
+    {
+      bounds: {
+        north: 39.0094,
+        south: 39.0079,
+        east: -94.5303,
+        west: -94.5322
+      },
+      alertText: 'You touched the third wall!'
+    },
+    {
+      bounds: {
+        north: 39.0079,
+        south: 39.0073,
+        east: -94.5322,
+        west: -94.5335
+      },
+      alertText: 'You touched the fourth wall!'
+    },
+    {
+      bounds: {
+        north: 39.0073,
+        south: 39.0068,
+        east: -94.5335,
+        west: -94.5346
+      },
+      alertText: 'You touched the fifth wall!'
+    }
+  ];
 
-          // Create the geofences
-          geofences.forEach(function (geofence) {
-              new google.maps.Circle({
-                  center: geofence.center,
-                  radius: geofence.radius,
-                  strokeColor: geofence.strokeColor,
-                  strokeOpacity: geofence.strokeOpacity,
-                  strokeWeight: geofence.strokeWeight,
-                  fillColor: geofence.fillColor,
-                  fillOpacity: geofence.fillOpacity,
-                  map: map
-              });
-          });
-
-          // Watch the user's location and check if they enter or leave the geofences
-          watchID = navigator.geolocation.watchPosition(function (position) {
-              var userLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-
-              // Update the marker position
-              marker.setPosition(userLocation);
-
-              // Check if the user is inside or outside any of the geofences
-              geofences.forEach(function (geofence) {
-                  if (google.maps.geometry.spherical.computeDistanceBetween(userLocation, geofence.center) <= geofence.alertRadius) {
-                      if (geofence.alertText === 'You died during the haunt!') {
-                          window.location.href = 'https://unsplash.com/photos/u6OnpbMuZAs';
-                      }
-                      alert(geofence.alertText);
-                  }
-              });
-          });
-      }
-
-      function stopWatching() {
-          // Stop watching the user's location
-          navigator.geolocation.clearWatch(watchID);
-      }
-  </script>
+  // Create the geofences
+  geofences.forEach(function (geofence) {
+    new google.maps.Rectangle({
+      bounds: geofence.bounds,
+      strokeColor: '#FF0000',
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: '#FF0000',
+      fillOpacity: 0.35,
+      map: map
+    });
+  });
+}
 
 
-  <div id="profile-photo"><div class="g-signin2" data-onsuccess="onSignIn"></div></div>
+counter = 0; // initialize the counter to 0
 
-    <div id="map" style="height: 100vh;"></div>
+// Create the geofences
+const geofences = [
+  {
+    bounds: {
+      north: 39.0112,
+      south: 39.0107,
+      east: -94.5318,
+      west: -94.5325
+    },
+    alertText: "You hit the northern boundary!"
+  },
+  {
+    bounds: {
+      north: 39.0107,
+      south: 39.0057,
+      east: -94.5318,
+      west: -94.5325
+    },
+    alertText: "You hit the western boundary!"
+  },
+  {
+    bounds: {
+      north: 39.0112,
+      south: 39.0057,
+      east: -94.5313,
+      west: -94.5318
+    },
+    alertText: "You hit the southern boundary!"
+  },
+  {
+    bounds: {
+      north: 39.0107,
+      south: 39.007,
+      east: -94.5313,
+      west: -94.5288
+    },
+    alertText: "You hit the eastern boundary!"
+  }
+];
+
+// Create the geofence rectangles
+const rectangles = geofences.map(function(geofence) {
+  const rectangle = new google.maps.Rectangle({
+    bounds: geofence.bounds,
+    strokeColor: "#FF0000",
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: "#FF0000",
+    fillOpacity: 0.35,
+    map: map
+  });
+
+  // Add a listener to the rectangle
+  google.maps.event.addListener(rectangle, "click", function() {
+    alert(geofence.alertText);
+  });
+
+  return rectangle;
+});
+
+// Create the circle
+const circle = new google.maps.Circle({
+  center: { lat: 39.0057, lng: -94.5288 },
+  radius: 50,
+  strokeColor: "blue",
+  strokeOpacity: 0.8,
+  strokeWeight: 2,
+  fillColor: "blue",
+  fillOpacity: 0.35,
+  map: map
+});
+
+// Add a listener to the circle
+google.maps.event.addListener(circle, "click", function() {
+  const distance = google.maps.geometry.spherical.computeDistanceBetween(
+    marker.getPosition(),
+    circle.getCenter()
+  );
+
+  if (distance <= 50) {
+    counter = 1;
+  } else if (distance > 50 && distance <= 100) {
+    counter = 2;
+  } else if (distance > 100 && distance <= 150) {
+    counter = 3;
+  } else if (distance > 150 && distance <= 200) {
+    counter = 4;
+  } else if (distance > 200 && distance <= 250) {
+    counter = 5;
+    alert("You have reached the circle!");
+  } else {
+    counter = 0;
+  }
+
+  console.log("Counter: " + counter);
+});
 
 
-  </body>
+
+</script>
+
+<div id="profile-photo"></div>
+<div id="signin"><div class="g-signin2" data-onsuccess="onSignIn"></div></div>
+
+  <div id="map" style="height: 100vh;"></div>
+
+
+</body>
 
 </html>
