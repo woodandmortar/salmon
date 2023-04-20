@@ -28,6 +28,24 @@
     bottom: 0;
     right: 0;
   }
+  #counter {
+    background-color: green;
+  }
+  #counter.counter-1 {
+    background-color: yellow;
+  }
+  #counter.counter-2 {
+    background-color: orange;
+  }
+  #counter.counter-3 {
+    background-color: darkorange;
+  }
+  #counter.counter-4 {
+    background-color: crimson;
+  }
+  #counter.counter-5 {
+    background-color: red;
+  }
 </style>
 
 
@@ -59,6 +77,7 @@
     var profilePhoto = document.getElementById('profile-photo');
     profilePhoto.style.backgroundImage = 'url(' + profile.getImageUrl() + ')';
 
+    // TODO: Add logic to handle the user's authentication status
   }
 </script>
 
@@ -83,169 +102,142 @@ function initMap() {
   // Create an array of geofences
   geofences = [
     {
-      bounds: {
-        north: 39.0120,
-        south: 39.0107,
-        east: -94.5315,
-        west: -94.5322
-      },
-      alertText: 'You touched the first wall!'
+      center: { lat: 39.0115, lng: -94.5465 },
+      radius: 100, // in meters
+      strokeColor: 'brown',
+      strokeOpacity: 0.3,
+      strokeWeight: 4,
+      fillColor: 'brown',
+      fillOpacity: 0.2,
+      alertRadius: 100,
+      alertText: 'You found the circle!'
     },
     {
-      bounds: {
-        north: 39.0114,
-        south: 39.0094,
-        east: -94.5315,
-        west: -94.5303
-      },
-      alertText: 'You touched the second wall!'
+      center: { lat: 39.0130, lng: -94.5472 },
+      radius: 200, // in meters
+      strokeColor: 'black',
+      strokeOpacity: 0.3,
+      strokeWeight: 4,
+      fillColor: 'black',
+      fillOpacity: 0.2,
+      alertRadius: 200,
+      alertText: 'You died during the haunt!'
     },
     {
-      bounds: {
-        north: 39.0094,
-        south: 39.0079,
-        east: -94.5303,
-        west: -94.5322
-      },
-      alertText: 'You touched the third wall!'
+      center: { lat: 39.0127, lng: -94.5452 },
+      radius: 100, // in meters
+      strokeColor: '#00FF00',
+      strokeOpacity: 0.3,
+      strokeWeight: 4,
+      fillColor: '#00FF00',
+      fillOpacity: 0.2,
+      alertRadius: 20,
+      alertText: 'You have entered the park Haunt area!'
     },
     {
-      bounds: {
-        north: 39.0079,
-        south: 39.0073,
-        east: -94.5322,
-        west: -94.5335
-      },
-      alertText: 'You touched the fourth wall!'
-    },
-    {
-      bounds: {
-        north: 39.0073,
-        south: 39.0068,
-        east: -94.5335,
-        west: -94.5346
-      },
-      alertText: 'You touched the fifth wall!'
+      center: { lat: 39.0140, lng: -94.5492 },
+      radius: 200, // in meters
+      strokeColor: '#0000FF',
+      strokeOpacity: 0.3,
+      strokeWeight: 4,
+      fillColor: '#0000FF',
+      fillOpacity: 0.2,
+      alertRadius: 20,
+      alertText: 'You are now inside the boss area!'
     }
   ];
 
+
   // Create the geofences
   geofences.forEach(function (geofence) {
-    new google.maps.Rectangle({
-      bounds: geofence.bounds,
-      strokeColor: '#FF0000',
-      strokeOpacity: 0.8,
-      strokeWeight: 2,
-      fillColor: '#FF0000',
-      fillOpacity: 0.35,
+    new google.maps.Circle({
+      center: geofence.center,
+      radius: geofence.radius,
+      strokeColor: geofence.strokeColor,
+      strokeOpacity: geofence.strokeOpacity,
+      strokeWeight: geofence.strokeWeight,
+      fillColor: geofence.fillColor,
+      fillOpacity: geofence.fillOpacity,
       map: map
     });
   });
-}
 
-
-counter = 0; // initialize the counter to 0
-
-// Create the geofences
-const geofences = [
-  {
-    bounds: {
-      north: 39.0112,
-      south: 39.0107,
-      east: -94.5318,
-      west: -94.5325
-    },
-    alertText: "You hit the northern boundary!"
-  },
-  {
-    bounds: {
-      north: 39.0107,
-      south: 39.0057,
-      east: -94.5318,
-      west: -94.5325
-    },
-    alertText: "You hit the western boundary!"
-  },
-  {
-    bounds: {
-      north: 39.0112,
-      south: 39.0057,
-      east: -94.5313,
-      west: -94.5318
-    },
-    alertText: "You hit the southern boundary!"
-  },
-  {
-    bounds: {
-      north: 39.0107,
-      south: 39.007,
-      east: -94.5313,
-      west: -94.5288
-    },
-    alertText: "You hit the eastern boundary!"
-  }
-];
-
-// Create the geofence rectangles
-const rectangles = geofences.map(function(geofence) {
-  const rectangle = new google.maps.Rectangle({
-    bounds: geofence.bounds,
-    strokeColor: "#FF0000",
+  // Add the circle to the map
+  circle = new google.maps.Circle({
+    center: { lat: 39.0107, lng: -94.5322 },
+    radius: 50,
+    strokeColor: 'red',
     strokeOpacity: 0.8,
     strokeWeight: 2,
-    fillColor: "#FF0000",
+    fillColor: 'red',
     fillOpacity: 0.35,
     map: map
   });
 
-  // Add a listener to the rectangle
-  google.maps.event.addListener(rectangle, "click", function() {
-    alert(geofence.alertText);
-  });
+  // Initialize the counter
+counter = 0;
 
-  return rectangle;
+// Watch the user's position
+watchID = navigator.geolocation.watchPosition(function (position) {
+// Update the marker's position
+var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+marker.setPosition(latLng);
+
+// Check if the user is inside a geofence
+geofences.forEach(function (geofence) {
+var distance = google.maps.geometry.spherical.computeDistanceBetween(latLng, geofence.center);
+if (distance <= geofence.alertRadius) {
+alert(geofence.alertText);
+}
 });
 
-// Create the circle
-const circle = new google.maps.Circle({
-  center: { lat: 39.0057, lng: -94.5288 },
-  radius: 50,
-  strokeColor: "blue",
-  strokeOpacity: 0.8,
-  strokeWeight: 2,
-  fillColor: "blue",
-  fillOpacity: 0.35,
-  map: map
+// Check if the user is inside the circle
+var distance = google.maps.geometry.spherical.computeDistanceBetween(latLng, circle.getCenter());
+if (distance <= circle.getRadius()) {
+counter++;
+if (counter == 5) {
+alert('You found the center of the circle!');
+}
+} else {
+counter = 0;
+}
 });
+}
 
-// Add a listener to the circle
-google.maps.event.addListener(circle, "click", function() {
-  const distance = google.maps.geometry.spherical.computeDistanceBetween(
-    marker.getPosition(),
-    circle.getCenter()
-  );
+// Get the div element
+var counterDiv = document.getElementById("counter");
 
-  if (distance <= 50) {
-    counter = 1;
-  } else if (distance > 50 && distance <= 100) {
-    counter = 2;
-  } else if (distance > 100 && distance <= 150) {
-    counter = 3;
-  } else if (distance > 150 && distance <= 200) {
-    counter = 4;
-  } else if (distance > 200 && distance <= 250) {
-    counter = 5;
-    alert("You have reached the circle!");
-  } else {
-    counter = 0;
-  }
+// Update the text content
+counterDiv.textContent = "Counter: " + counter;
 
-  console.log("Counter: " + counter);
-});
+// Remove all counter classes
+counterDiv.classList.remove("counter-1");
+counterDiv.classList.remove("counter-2");
+counterDiv.classList.remove("counter-3");
+counterDiv.classList.remove("counter-4");
+counterDiv.classList.remove("counter-5");
 
-
+// Add the appropriate counter class
+if (counter >= 1) {
+  counterDiv.classList.add("counter-1");
+}
+if (counter >= 2) {
+  counterDiv.classList.add("counter-2");
+}
+if (counter >= 3) {
+  counterDiv.classList.add("counter-3");
+}
+if (counter >= 4) {
+  counterDiv.classList.add("counter-4");
+}
+if (counter >= 5) {
+  counterDiv.classList.add("counter-5");
+}
 
 </script>
+
+
+<div id="counter" style="position: absolute; bottom: 80px; left: 0px; z-index: 999; background-color: green; color: white; padding: 5px;">EMF: 0</div>
 
 <div id="profile-photo"></div>
 <div id="signin"><div class="g-signin2" data-onsuccess="onSignIn"></div></div>
