@@ -26,7 +26,7 @@
     <title>WoodandMortar</title>
 
 
-
+<link rel="stylesheet" href="./style.css">
 <link rel="stylesheet" href="./slick.min.css">
 <link rel="stylesheet" href="./slick-theme.min.css">
     <script src='annyang.js'></script>
@@ -103,13 +103,64 @@
   	</div>
 </div>
 
-<div class="circle-wrapper"><img class="neon-green-image" style="height:600px;" src="micheal.png"></div>
 
   </body>
 
 
   	<div class="carousel">
-  		<div class="section section-1"></div>
+  		<div class="section section-1">
+
+        <div class="circle-wrapper">
+          <!-- partial:index.partial.html -->
+          <input  style="display:none;" class="special-mask option" type="checkbox" name="special-mask" value="true" id="special-mask"/>
+          <label style="display:none;" class="option" for="special-mask">✨ Golden mask</label>
+          <input style="display:none;" class="talking-mask option" type="checkbox" name="talking-mask" value="true" id="talking-mask"/>
+          <label style="display:none;" class="option" for="talking-mask">💬 Talking mask</label>
+          <input style="display:none;" class="mask-emotions--neutral option" type="radio" name="mask-emotions" value="true" id="mask-emotions--neutral" checked="checked"/>
+          <label style="display:none;" class="option" for="mask-emotions--neutral">😐 neutral
+          </label>
+          <input style="display:none;" class="mask-emotions--angry option" type="radio" name="mask-emotions" value="true" id="mask-emotions--angry"/>
+          <label style="display:none;" class="option" for="mask-emotions--angry">😡 angry
+          </label>
+          <input style="display:none;" class="mask-emotions--sad option" type="radio" name="mask-emotions" value="true" id="mask-emotions--sad"/>
+          <label style="display:none;" class="option" for="mask-emotions--sad">😞 sad
+          </label>
+          <input style="display:none;" class="mask-emotions--shocked option" type="radio" name="mask-emotions" value="true" id="mask-emotions--shocked"/>
+          <label style="display:none;" class="option" for="mask-emotions--shocked">😨 shocked
+          </label>
+          <input style="display:none;" class="mask-emotions--confused option" type="radio" name="mask-emotions" value="true" id="mask-emotions--confused"/>
+          <label style="display:none;" class="option" for="mask-emotions--confused">🤔 confused
+          </label>
+          <div class="aku-aku star">
+            <div class="mask-wrapper star">
+              <div class="feathers">
+                <div class="feather"></div>
+                <div class="feather"></div>
+                <div class="feather"></div>
+                <div class="feather"></div>
+                <div class="feather"></div>
+                <div class="feather"></div>
+                <div class="feather"></div>
+              </div>
+              <div class="mask">
+                <div class="nose"></div>
+                <div class="eye eye--left">
+                  <div class="brow brow--left"></div>
+                </div>
+                <div class="eye eye--right">
+                  <div class="brow brow--right"></div>
+                </div>
+                <div class="goatee"></div>
+                <div class="mouth">
+                  <div class="teeth"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- partial -->
+
+        </div>
+      </div>
       <div class="section section-2" style="position: relative;">
   <div id="counter" style="position: absolute; bottom: 80px; left: 0px; z-index: 999; background-color: green; color: white; padding: 5px;">EMF: 0</div>
   <div id="map" style="height: 100vh;"></div>
@@ -240,18 +291,21 @@ audioBtn.addEventListener("mouseup", () => {
     // Let's define a command.
     const commands = {
       'hello': () => {
-      document.getElementById('sentence').innerHTML = 'Hello.....'; setTimeout(function() { disappear();}, 3000);
+      document.getElementById('talking-mask').checked = true;
+      document.getElementById('sentence').innerHTML = 'Hello...'; setTimeout(function() { disappear();}, 3000);
       setTimeout(function() {
-    document.getElementById('sentence').innerHTML = 'Im Micheal, Owner of Woodandmortar.com a Limited Liability Company.';
+    document.getElementById('sentence').innerHTML = 'I am Jesse, the great grandson of Olu the healer. Say, I need a tutorial or say let us get started.';
     setTimeout(function() {
-        disappear();
+        document.getElementById('talking-mask').checked = false;
     }, 7000);
 }, 4000);
 },
-      'one': () => {
-    document.getElementById('sentence').innerHTML = 'You are about to take your first steps, start with saying growth or culture.';
+      'tutorial': () => {
+        document.getElementById('talking-mask').checked = true;
+    document.getElementById('sentence').innerHTML = 'You are about to take your first steps in learning about healing magic.';
+    document.getElementById('mask-emotions--confused').checked = true;
     setTimeout(function() {
-        disappear();
+        document.getElementById('talking-mask').checked = false;
     }, 6000);
 },
       'two': () => {
@@ -284,5 +338,46 @@ audioBtn.addEventListener("mouseup", () => {
         element.style.display='none';
     }
   }
+
+  // Set a timer variable
+  let idleTimer;
+
+  // Set a delay of 7 seconds for the first check
+  let delay = 7000;
+
+  // Add a mousemove event listener to the document
+  document.addEventListener('mousemove', function() {
+    // Reset the timer
+    clearTimeout(idleTimer);
+    // Set a new delay of 7 seconds
+    delay = 7000;
+    // Restart the timer
+    idleTimer = setTimeout(checkInactivity, delay);
+  });
+
+  // Start the timer
+  idleTimer = setTimeout(checkInactivity, delay);
+
+  // Function to check for inactivity
+  function checkInactivity() {
+    // Call your function here
+    runFunction();
+    // Set a new delay of 5 seconds
+    delay = 5000;
+    // Restart the timer
+    idleTimer = setTimeout(checkInactivity, delay);
+  }
+
+  // Function to run every 5 seconds of inactivity
+  function runFunction() {
+    var masks = ['talking-mask', 'mask-emotions--confused', 'mask-emotions--shocked', 'special-mask', 'mask-emotions--angry'];
+    var randomMask = masks[Math.floor(Math.random() * masks.length)];
+
+    document.getElementById(randomMask).checked = true;
+    setTimeout(function() {
+      document.getElementById(randomMask).checked = false;
+    }, 2000);
+  }
+
 </script>
 </html>

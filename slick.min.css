@@ -129,12 +129,25 @@ display: none;
       }
 
       .section-1 {
-        background-image: url("wall1.png");
-        background-color: transparent;
-        background-repeat: no-repeat;
-        background-size: cover;
-        opacity: .7;
-      }
+    background-image: url("wall1.png");
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: .7;
+    animation: abstract-animation 20s ease-in-out infinite;
+  }
+
+  @keyframes abstract-animation {
+    0% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 50% 100%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
+  }
 
       .section-2 {
         background-image: url("wall2.jpg");
@@ -174,36 +187,9 @@ display: none;
 
 .circle-wrapper {
   position: absolute;
-  width: 200px;
-  height: 200px;
   z-index: 9999999999;
-  border-radius: 50%;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  overflow: hidden;
 }
 
-.neon-green-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  max-width: 100%;
-  max-height: 100%;
-  border-radius: 50%;
-  border: 5px solid #1aff00;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  transition: transform 0.5s ease-in-out;
-}
-
-.neon-green-image:hover {
-  transform: rotate(5deg);
-}
-
-.neon-green-image:active {
-  transform: scale(1.2);
-}
 
   .wrapper {
     background: none;
