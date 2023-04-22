@@ -150,35 +150,35 @@ display: none;
   }
 
       .section-2 {
-        background-image: url("wall2.jpg");
+        background-image: url("glitch1.gif");
         background-color: transparent;
         background-repeat: no-repeat;
         background-size: cover;
       }
 
       .section-3 {
-        background-image: url("wall3.jpg");
+        background-image: url("glitch1.gif");
         background-color: transparent;
         background-repeat: no-repeat;
         background-size: cover;
       }
 
       .section-4 {
-        background-image: none;
+        background-image: url("glitch1.gif");
         background-color: transparent;
         background-repeat: no-repeat;
         background-size: cover;
       }
 
       .section-5 {
-        background-image: url("wall5.jpg");
+        background-image: url("glitch1.gif");
         background-color: transparent;
         background-repeat: no-repeat;
         background-size: cover;
       }
 
       .section-6 {
-        background-image: url("wall6.png");
+        background-image: url("glitch1.gif");
         background-color: transparent;
         background-repeat: no-repeat;
         background-size: cover;
