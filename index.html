@@ -131,16 +131,30 @@
 <div id="profile-photo"></div>
 <div id="signin"><div class="g-signin2" data-onsuccess="onSignIn"></div></div>
 <div class="button-container">
-  <button class="svg-button" id="open-btn" onclick="openNotecard()">Options</button>
+  <button class="svg-button" id="open-btn" onclick="toggleNotecard()">Options</button>
   <button class="svg-button" id="audioBtn" onclick="annyang.start()">Talk</button>
 
-  	<div id="notecard">
-  			<button class="svg-button">Facebook</button>
-  			<button class="svg-button">Email</button>
-  			<button class="svg-button" onclick = "window.location.href='compass.html';">Compass</button>
-  			<button class="svg-button" id="butNote" onclick="closeNotecard();stopWatching()">Close</button>
-  	</div>
+  <div id="notecard" style="display:none">
+    <button class="svg-button" onclick="counter = 0;">Stop</button>
+    <button class="svg-button" onclick="counter = 2;">Go Away</button>
+    <button class="svg-button" onclick="counter = 3;">Chase Me</button>
+    <button class="svg-button" onclick="stopWatching(); toggleNotecard()">End Game</button>
+  </div>
 </div>
+
+<script>
+  function toggleNotecard() {
+    var notecard = document.getElementById("notecard");
+    if (notecard.style.display === "none") {
+      notecard.style.display = "block";
+      document.getElementById("open-btn").innerHTML = "Close";
+    } else {
+      notecard.style.display = "none";
+      document.getElementById("open-btn").innerHTML = "Options";
+    }
+  }
+</script>
+
 
 
   </body>
@@ -350,7 +364,7 @@ audioBtn.addEventListener("mouseup", () => {
 
   // Function to run every 5 seconds of inactivity
   function runFunction() {
-    var masks = ['talking-mask', 'mask-emotions--confused', 'mask-emotions--shocked', 'special-mask', 'mask-emotions--angry'];
+    var masks = ['talking-mask', 'mask-emotions--confused', 'mask-emotions--shocked', 'mask-emotions--sad', 'mask-emotions--angry'];
     var randomMask = masks[Math.floor(Math.random() * masks.length)];
 
     document.getElementById(randomMask).checked = true;
