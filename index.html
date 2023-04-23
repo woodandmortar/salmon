@@ -129,18 +129,24 @@
               <!-- partial -->
     </div>
 
-<div id="profile-photo"></div>
-<div id="signin"><div class="g-signin2" data-onsuccess="onSignIn"></div></div>
+<div style="opacity: .25;" id="profile-photo"></div>
+
 <div class="button-container">
   <button class="svg-button" id="open-btn" onclick="toggleNotecard()">Powers</button>
+  <button class="svg-button" id="open-btn2" onclick="toggleNotecard2()">Options</button>
   <button class="svg-button" id="audioBtn" onclick="annyang.start()">Talk</button>
 
   <div id="notecard" style="display:none">
-    <button class="svg-button" onclick="speed = 0;">Stop</button>
-    <button class="svg-button" onclick="speed = -10;">Go Away</button>
-    <button class="svg-button" onclick="speed = 10;">Chase Me</button>
-    <button class="svg-button" onclick="moveSafepink();">safe zone</button>
-    <button class="svg-button" onclick="stopWatching(); toggleNotecard()">End Game</button>
+    <button class="svg-button" onclick="toggleNotecard();speed = 0;">Stop</button>
+    <button class="svg-button" onclick="toggleNotecard();speed = -10;">Go Away</button>
+    <button class="svg-button" onclick="toggleNotecard();speed = 10;">Chase Me</button>
+    <button class="svg-button" onclick="toggleNotecard();moveSafepink();">safe zone</button>
+  </div>
+  <div id="notecard2" style="display:none">
+    <button class="svg-button" onclick="speed = 0;">Facebook</button>
+    <button class="svg-button" onclick="speed = -10;">Email</button>
+    <button class="svg-button" onclick="stopWatching();">Quit Game</button>
+    <div id="signin"><div class="g-signin2" data-onsuccess="onSignIn"></div></div>
   </div>
 </div>
 
@@ -155,6 +161,16 @@
       document.getElementById("open-btn").innerHTML = "Powers";
     }
   }
+  function toggleNotecard2() {
+    var notecard2 = document.getElementById("notecard2");
+    if (notecard2.style.display === "none") {
+      notecard2.style.display = "block";
+      document.getElementById("open-btn2").innerHTML = "Close";
+    } else {
+      notecard2.style.display = "none";
+      document.getElementById("open-btn2").innerHTML = "Options";
+    }
+  }
 </script>
 
 
@@ -163,11 +179,12 @@
 
 
   	<div class="carousel">
-  		<div class="section section-1">
-
-      </div>
-      <div class="section section-2" style="position: relative;">
+  		
+      <div class="section section-1" style="position: relative;">
   <div id="map" style="height: 100vh;"></div>
+</div>
+<div class="section section-2">
+
 </div>
   		<div class="section section-3"></div>
       <div class="section section-4"></div>
@@ -297,7 +314,7 @@ audioBtn.addEventListener("mouseup", () => {
       'hello': () => {
       document.getElementById('sentence').innerHTML = 'Hello...'; setTimeout(function() { disappear();}, 3000);
       setTimeout(function() {
-    document.getElementById('sentence').innerHTML = 'I am Jesse, the great grandson of Olu the healer. Say, I need a tutorial or say let us get started.';
+    document.getElementById('sentence').innerHTML = 'I am Olu the healer. Say, I need a tutorial or say let us get started.';
 }, 4000);
 },
       'tutorial': () => {

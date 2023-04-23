@@ -186,8 +186,8 @@ display: none;
     #notecard {
       display: none;
       position: fixed;
-      top: 50%;
-      left: 50%;
+      top: 70%;
+      left: 70%;
       transform: translate(-50%, -50%);
       padding: 20px;
       background-color: white;
@@ -206,13 +206,36 @@ background-position: 0 0;
       padding: 10px;
     }
 
+    #notecard2 {
+      display: none;
+      position: fixed;
+      top: 70%;
+      left: 70%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      background-color: white;
+      border: 2px solid black;
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+background-size: 20px 20px;
+background-position: 0 0;
+    }
+
+    #notecard2 button {
+      display: block;
+      margin: 10px;
+      padding: 10px;
+    }
+
 
     .svg-button {
   position: block;
-  width: 200px;
-  height: 60px;
+  width: 100px;
+  height: 40px;
   font-family: 'Cabin Sketch', cursive;
-  font-size: 2em;
+  font-size: 1em;
   border: 2px solid #333;
   border-radius: 10px;
   background-image: linear-gradient(to right, black, black 50%, transparent 50%, transparent);
