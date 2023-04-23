@@ -133,7 +133,6 @@ display: none;
     background-color: transparent;
     background-repeat: no-repeat;
     background-size: cover;
-    opacity: .7;
     animation: abstract-animation 20s ease-in-out infinite;
   }
 
@@ -150,98 +149,38 @@ display: none;
   }
 
       .section-2 {
-        background-image: url("glitch1.gif");
+        background-image: url("wall1.png");
         background-color: transparent;
         background-repeat: no-repeat;
         background-size: cover;
       }
 
       .section-3 {
-        background-image: url("glitch1.gif");
+        background-image: url("wall1.png");
         background-color: transparent;
         background-repeat: no-repeat;
         background-size: cover;
       }
 
       .section-4 {
-        background-image: url("glitch1.gif");
+        background-image: url("wall1.png");
         background-color: transparent;
         background-repeat: no-repeat;
         background-size: cover;
       }
 
       .section-5 {
-        background-image: url("glitch1.gif");
+        background-image: url("wall1.png");
         background-color: transparent;
         background-repeat: no-repeat;
         background-size: cover;
       }
 
       .section-6 {
-        background-image: url("glitch1.gif");
+        background-image: url("wall1.png");
         background-color: transparent;
         background-repeat: no-repeat;
         background-size: cover;
-      }
-
-
-.circle-wrapper {
-  position: absolute;
-  z-index: 9999999999;
-}
-
-
-  .wrapper {
-    background: none;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 1em;
-    position: fixed;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-  }
-
-
-  .svg-elem-1, .svg-elem-2, .svg-elem-3 {
-          stroke-dasharray: 1000;
-          stroke-dashoffset: 1000;
-          animation: draw 7s linear forwards;
-          opacity: 1;
-      }
-      .svg-elem-1 {
-          animation-delay: 2.7s;
-      }
-      .svg-elem-2 {
-          animation-delay: 4.6s;
-      }
-      .svg-elem-3 {
-          animation-delay: 6.5s;
-      }
-      @keyframes draw {
-          to {
-              stroke-dashoffset: 0;
-              opacity: 0;
-          }
-      }
-
-
-      .vresponse {
-        position: absolute;
-        margin: 0;
-        padding: 0;
-        color: black;
-        font-size: 1.5em;
-        text-align: center;
-        top: 70%;
-        left: 50%;
-        -webkit-transform: translate3d(-50%,-50%,0);
-        transform: translate3d(-50%,-50%,0);
-        z-index:15;
       }
 
     #notecard {
@@ -273,13 +212,13 @@ background-position: 0 0;
   width: 200px;
   height: 60px;
   font-family: 'Cabin Sketch', cursive;
-  font-size: 1.5em;
+  font-size: 2em;
   border: 2px solid #333;
   border-radius: 10px;
-  background-image: linear-gradient(to right, white, white 50%, transparent 50%, transparent);
+  background-image: linear-gradient(to right, black, black 50%, transparent 50%, transparent);
   background-size: 200% 100%;
   background-position: 0 0;
-  color: #333;
+  color: white;
   cursor: pointer;
   transition: border 0.3s, color 0.3s, opacity 0.3s, background-position 0.3s;
 }

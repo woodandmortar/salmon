@@ -70,25 +70,64 @@
     </script>
 
 
-    <div class="wrapper">
-          <svg xmlns="http://www.w3.org/2000/svg" width="300.000000pt" height="300.000000pt" viewBox="0 0 300.000000 300.000000">
-            <g transform="translate(0.000000,300.000000) scale(0.100000,-0.100000)"
-              fill="#000000" stroke="#000000" >
-                <path d="M540 1981 c0 -10 544 -1001 549 -1001 3 0 46 99 94 219 l88 218 -151
-                    274 c-84 151 -155 277 -158 281 -8 7 -422 16 -422 9z" class="svg-elem-1">
-                </path>
-                <path d="M1947 1983 c-4 -3 -7 -233 -7 -510 l0 -503 170 0 170 0 0 510 0 510
-                    -163 0 c-90 0 -167 -3 -170 -7z" class="svg-elem-2">
-                </path>
-                <path d="M1162 1902 c230 -416 514 -921 519 -922 8 0 169 411 169 430 0 8 -68
-                    139 -150 290 l-149 275 -216 3 -216 2 43 -78z" class="svg-elem-3">
-                </path>
-            </g>
+    <p id="sentence" class="vresponse" style="position: absolute;
+    margin: 0;
+    padding: 0;
+    color: white;
+    overflow: auto;
+    font-size: 1.5em;
+    text-align: center;
+    background-color: black;
+    top: 10px;
+    left: 5px;
+    z-index:15;">Try saying <b>"Hello" or "Hey Micheal"</b> to get my attention.</p>
 
-        </svg>
+    <div style="position: absolute;
+    font-size: 1em;
+    text-align: center;
+    top: -140px;
+    right: 145px;
+    z-index:15;">
+              <!-- partial:index.partial.html -->
+              <input  style="display:none;" class="special-mask option" type="checkbox" name="special-mask" value="true" id="special-mask"/>
+              <label style="display:none;" class="option" for="special-mask">✨ Golden mask</label>
+              <input style="display:none;" class="talking-mask option" type="checkbox" name="talking-mask" value="true" id="talking-mask"/>
+              <label style="display:none;" class="option" for="talking-mask">💬 Talking mask</label>
+              <input style="display:none;" class="mask-emotions--neutral option" type="radio" name="mask-emotions" value="true" id="mask-emotions--neutral" checked="checked"/>
+              <label style="display:none;" class="option" for="mask-emotions--neutral">😐 neutral
+              </label>
+              <input style="display:none;" class="mask-emotions--angry option" type="radio" name="mask-emotions" value="true" id="mask-emotions--angry"/>
+              <label style="display:none;" class="option" for="mask-emotions--angry">😡 angry
+              </label>
+              <input style="display:none;" class="mask-emotions--sad option" type="radio" name="mask-emotions" value="true" id="mask-emotions--sad"/>
+              <label style="display:none;" class="option" for="mask-emotions--sad">😞 sad
+              </label>
+              <input style="display:none;" class="mask-emotions--shocked option" type="radio" name="mask-emotions" value="true" id="mask-emotions--shocked"/>
+              <label style="display:none;" class="option" for="mask-emotions--shocked">😨 shocked
+              </label>
+              <input style="display:none;" class="mask-emotions--confused option" type="radio" name="mask-emotions" value="true" id="mask-emotions--confused"/>
+              <label style="display:none;" class="option" for="mask-emotions--confused">🤔 confused
+              </label>
+              <div class="aku-aku star">
+                <div class="mask-wrapper star">
+                  <div class="mask">
+                    <div class="nose"></div>
+                    <div class="eye eye--left">
+                      <div class="brow brow--left"></div>
+                    </div>
+                    <div class="eye eye--right">
+                      <div class="brow brow--right"></div>
+                    </div>
+                    <div class="goatee"></div>
+                    <div class="mouth">
+                      <div class="teeth"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- partial -->
     </div>
 
-<p id="sentence" class="vresponse">Try saying <b>"Hello" or "Hey Micheal"</b> to get my attention.</p>
 <div id="profile-photo"></div>
 <div id="signin"><div class="g-signin2" data-onsuccess="onSignIn"></div></div>
 <div class="button-container">
@@ -110,50 +149,8 @@
   	<div class="carousel">
   		<div class="section section-1">
 
-        <div class="circle-wrapper">
-          <!-- partial:index.partial.html -->
-          <input  style="display:none;" class="special-mask option" type="checkbox" name="special-mask" value="true" id="special-mask"/>
-          <label style="display:none;" class="option" for="special-mask">✨ Golden mask</label>
-          <input style="display:none;" class="talking-mask option" type="checkbox" name="talking-mask" value="true" id="talking-mask"/>
-          <label style="display:none;" class="option" for="talking-mask">💬 Talking mask</label>
-          <input style="display:none;" class="mask-emotions--neutral option" type="radio" name="mask-emotions" value="true" id="mask-emotions--neutral" checked="checked"/>
-          <label style="display:none;" class="option" for="mask-emotions--neutral">😐 neutral
-          </label>
-          <input style="display:none;" class="mask-emotions--angry option" type="radio" name="mask-emotions" value="true" id="mask-emotions--angry"/>
-          <label style="display:none;" class="option" for="mask-emotions--angry">😡 angry
-          </label>
-          <input style="display:none;" class="mask-emotions--sad option" type="radio" name="mask-emotions" value="true" id="mask-emotions--sad"/>
-          <label style="display:none;" class="option" for="mask-emotions--sad">😞 sad
-          </label>
-          <input style="display:none;" class="mask-emotions--shocked option" type="radio" name="mask-emotions" value="true" id="mask-emotions--shocked"/>
-          <label style="display:none;" class="option" for="mask-emotions--shocked">😨 shocked
-          </label>
-          <input style="display:none;" class="mask-emotions--confused option" type="radio" name="mask-emotions" value="true" id="mask-emotions--confused"/>
-          <label style="display:none;" class="option" for="mask-emotions--confused">🤔 confused
-          </label>
-          <div class="aku-aku star">
-            <div class="mask-wrapper star">
-              <div class="mask">
-                <div class="nose"></div>
-                <div class="eye eye--left">
-                  <div class="brow brow--left"></div>
-                </div>
-                <div class="eye eye--right">
-                  <div class="brow brow--right"></div>
-                </div>
-                <div class="goatee"></div>
-                <div class="mouth">
-                  <div class="teeth"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- partial -->
-
-        </div>
       </div>
       <div class="section section-2" style="position: relative;">
-  <div id="counter" style="position: absolute; bottom: 80px; left: 0px; z-index: 999; background-color: green; color: white; padding: 5px;">EMF: 0</div>
   <div id="map" style="height: 100vh;"></div>
 </div>
   		<div class="section section-3"></div>
@@ -179,7 +176,7 @@
                 background-color: #fff;
                 box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
                 text-align: center;
-                font-size: 1em;
+                font-size: .5em;
               }
             </style>
           </head>
@@ -282,23 +279,15 @@ audioBtn.addEventListener("mouseup", () => {
     // Let's define a command.
     const commands = {
       'hello': () => {
-      document.getElementById('talking-mask').checked = true;
       document.getElementById('sentence').innerHTML = 'Hello...'; setTimeout(function() { disappear();}, 3000);
       setTimeout(function() {
     document.getElementById('sentence').innerHTML = 'I am Jesse, the great grandson of Olu the healer. Say, I need a tutorial or say let us get started.';
-    setTimeout(function() {
-        document.getElementById('talking-mask').checked = false;
-    }, 7000);
 }, 4000);
 },
       'tutorial': () => {
-        document.getElementById('talking-mask').checked = true;
     document.getElementById('sentence').innerHTML = 'You are about to take your first steps in learning about healing magic.';
     document.getElementById('mask-emotions--confused').checked = true;
-    setTimeout(function() {
-        document.getElementById('talking-mask').checked = false;
-    }, 6000);
-},
+    },
       'two': () => {
     document.getElementById('sentence').innerHTML = 'Creating your PDF now.....';
     setTimeout(function() {
@@ -369,6 +358,16 @@ audioBtn.addEventListener("mouseup", () => {
       document.getElementById(randomMask).checked = false;
     }, 2000);
   }
+  var vresponse = document.querySelector('.vresponse');
+
+  vresponse.addEventListener('DOMSubtreeModified', function() {
+  document.getElementById('talking-mask').checked = true;
+  setTimeout(function() {
+      document.getElementById('talking-mask').checked = false;
+  }, 6000);
+  });
+
+
 
 </script>
 </html>

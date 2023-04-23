@@ -349,7 +349,7 @@ transition-timing-function: ease-in-out;
   width: 2rem;
   height: 2rem;
   margin: auto;
-  font-size: 2rem;
+  font-size: .2rem;
   opacity: 0;
   -webkit-animation: stars 0.75s ease-out infinite forwards;
           animation: stars 0.75s ease-out infinite forwards;
